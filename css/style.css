@@ -391,6 +391,7 @@ section {
   height: 30rem;
   overflow: hidden;
   position: relative;
+  display: none;
 }
 
 .portfolio .box-container .box:hover .content {
@@ -465,7 +466,8 @@ section {
     margin-right: 0%;
   }
 
-  .portfolio .box-container .box .content p {
+  .portfolio .box-container .box .content p,
+  .portfolio .box-container .box .content h3 {
     width: 100%;
     word-break: break-all;
   }

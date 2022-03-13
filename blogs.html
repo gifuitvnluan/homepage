@@ -127,9 +127,24 @@
 
     </div>
 
+    <div id="testblog">
+
+    </div>
+
 </section>
 
 <!-- blogs section ends -->
 
 </body>
+<script src="./js/jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function(){
+        $.get('./blogs/blog-news/blog-1.html', function(data,status,xhr) {
+        console.log(data +" - "+ status +" - "+ xhr);
+        });
+        // $.get('./blogs/blog-general/numberoffiles.php', function(data) {
+        // alert(data);
+        // });
+    })
+</script>
 </html>
