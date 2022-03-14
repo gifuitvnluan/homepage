@@ -35,100 +35,6 @@
 
     <div class="box-container">
 
-        <div class="box">
-            <div class="image">
-                <img src="images/blog1.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-                <h3>blog title goes here.</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, illum.</p>
-                <a href="#" class="btn"> read more <i class="fas fa-link"></i> </a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/blog2.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-                <h3>blog title goes here.</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, illum.</p>
-                <a href="#" class="btn"> read more <i class="fas fa-link"></i> </a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/blog3.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-                <h3>blog title goes here.</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, illum.</p>
-                <a href="#" class="btn"> read more <i class="fas fa-link"></i> </a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/blog4.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-                <h3>blog title goes here.</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, illum.</p>
-                <a href="#" class="btn"> read more <i class="fas fa-link"></i> </a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/blog5.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-                <h3>blog title goes here.</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, illum.</p>
-                <a href="#" class="btn"> read more <i class="fas fa-link"></i> </a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/blog6.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-                <h3>blog title goes here.</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, illum.</p>
-                <a href="#" class="btn"> read more <i class="fas fa-link"></i> </a>
-            </div>
-        </div>
-
-    </div>
-
-    <div id="testblog">
-
     </div>
 
 </section>
@@ -139,12 +45,52 @@
 <script src="./js/jquery-3.6.0.js"></script>
 <script>
     $(document).ready(function(){
-        $.get('./blogs/blog-news/blog-1.html', function(data,status,xhr) {
-        console.log(data +" - "+ status +" - "+ xhr);
-        });
-        $.get('./blogs/blog-general/numberoffiles.php', function(data) {
-            console.log(data);
-        });
+        var i;
+        var j = 1;
+        for (i = 0; i < 1; i) {
+            var urlstring = './blogs/blog-news/blog-'+j+'.html';
+            if(doesFileExist(urlstring)){
+                j++;
+                getajax(urlstring);
+            }else{
+                break;
+            }
+            
+        }
+        function getajax(urlToFile) {
+            $.get(urlToFile, function(data, status){
+
+                var datastring = data;
+                datastring = datastring.split('==='); // split into array
+
+                console.log(datastring);
+
+                var title = datastring[0];
+                var image = datastring[1];
+                image = image.replace('../.','');
+                var description = datastring[2];
+                var date = datastring[4];
+                
+
+                // console.log("Data: " + data + "\nStatus: " + status);
+                // console.log("Title: " + title + "\n\nImage: " + image + "\n\nDescription: " + description + "\n\nContent: " + content);
+
+                var allbox;
+                allbox = '<div class="box">'+image+'<div class="content"><div class="icons"><a href="#"> <i class="fas fa-calendar"></i> '+date+' </a><a href="#"> <i class="fas fa-user"></i> by admin </a></div>'+title+'<p>'+description+'</p><a href="'+urlToFile+'" class="btn"> read more <i class="fas fa-link"></i></a></div></div>'
+                $('.blogs .box-container').prepend(allbox);
+            });
+        };
+        function doesFileExist(urlToFile) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('HEAD', urlToFile, false);
+            xhr.send();
+            
+            if (xhr.status == "404") {
+                return false;
+            } else {
+                return true;
+            }
+        };
     })
 </script>
 </html>

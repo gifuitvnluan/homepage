@@ -1,1 +1,0 @@
-<?php echo iterator_count(new DirectoryIterator('../blog-news/')) - 2; ?>
