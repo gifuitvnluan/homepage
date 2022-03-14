@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blogs</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../css/fancybox.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+    
+<!-- navbar section starts  -->
+
+<nav class="navbar">
+    <a href="../"> <i class="fas fa-home"></i> <span>home</span> </a>
+    <a href="../about.html"> <i class="fas fa-user"></i> <span>about</span> </a>
+    <a href="../portfolio.html"> <i class="fas fa-briefcase"></i> <span>portfolio</span> </a>
+    <a href="../blogs.html"> <i class="fas fa-blog"></i> <span>blogs</span> </a>
+    <a href="../contact.html"> <i class="fas fa-address-book"></i> <span>contact</span> </a>
+</nav>
+
+<!-- navbar section ends -->
+
+<!-- blogs section starts  -->
+
+<section class="blogs">
+
+    <h1 class="heading"> <span>my</span> blogs </h1>
+
+    <div class="blog-single">
+        <h1></h1>
+        <div class="div_thumbnail"></div>
+        <div class="div_des"></div>
+
+        <div class="all_content">
+            
+        </div>
+
+    </div>
+
+</section>
+
+<!-- blogs section ends -->
+
+</body>
+<script src="../js/jquery-3.6.0.js"></script>
+<script src="../js/fancybox.umd.js"></script>
+<script>
+    $(document).ready(function(){
+
+        var $_GET = {};
+        document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+            function decode(s) {
+                return decodeURIComponent(s.split("+").join(" "));
+            }
+
+            $_GET[decode(arguments[1])] = decode(arguments[2]);
+        });
+
+        var urlstring = './blog-news/'+$_GET["page"]+'.html';
+        if(doesFileExist(urlstring)){
+            getajax(urlstring);
+        }else{
+
+        }
+
+        function getajax(urlToFile) {
+            $.get(urlToFile, function(data, status){
+
+                var datastring = data;
+                datastring = datastring.split('==='); // split into array
+
+                var title = datastring[0].replace('<h3>','').replace('</h3>','');
+
+                var image = datastring[1];
+                image = image.replace('<div class="image"><img src="../','').replace('" alt="thumbnail"></div>','');
+                var content = datastring[3];
+                var date = datastring[4];
+                console.log(image);
+                $('.blogs .blog-single .div_thumbnail').css('background-image','url('+image+')');
+                $('.blogs .blog-single h1').html(title);
+                $('.blogs .blog-single .div_des').html('<div class="icons"><a href="#"> <i class="fas fa-calendar"></i> '+date+' </a><a href="#"> <i class="fas fa-user"></i> by admin </a></div>');
+                $('.blogs .blog-single .all_content').html(content);
+            });
+        };
+
+        function doesFileExist(urlToFile) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('HEAD', urlToFile, false);
+            xhr.send();
+            
+            if (xhr.status == "404") {
+                return false;
+            } else {
+                return true;
+            }
+        };
+    })
+</script>
+</html>
