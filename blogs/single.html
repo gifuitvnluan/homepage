@@ -68,8 +68,16 @@
         if(doesFileExist(urlstring)){
             getajax(urlstring);
         }else{
-
+            get404();
         }
+
+        function get404() {
+                $('.blogs .heading').html("4<span>0</span>4");
+                $('.blogs .blog-single .div_thumbnail').hide();
+                $('.blogs .blog-single h1').html("Sorry, the page you were looking for doesn't exist");
+                $('.blogs .blog-single .div_des').hide();
+                $('.blogs .blog-single .all_content').html('<div class="dl_fl"><a href="../index.html" class="btn"> BACK TO HOME PAGE <i class="fas fa-link"></i></a></div>');
+        };
 
         function getajax(urlToFile) {
             $.get(urlToFile, function(data, status){
@@ -83,7 +91,6 @@
                 image = image.replace('<div class="image"><img src="../','').replace('" alt="thumbnail"></div>','');
                 var content = datastring[3];
                 var date = datastring[4];
-                console.log(image);
                 $('.blogs .blog-single .div_thumbnail').css('background-image','url('+image+')');
                 $('.blogs .blog-single h1').html(title);
                 $('.blogs .blog-single .div_des').html('<div class="icons"><a href="#"> <i class="fas fa-calendar"></i> '+date+' </a><a href="#"> <i class="fas fa-user"></i> by admin </a></div>');
