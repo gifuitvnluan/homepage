@@ -18,8 +18,8 @@
 <!-- navbar section starts  -->
 
 <nav class="navbar">
-    <a href="./"> <i class="fas fa-home"></i> <span>home</span> </a>
-    <a href="about.html"> <i class="fas fa-user"></i> <span>about</span> </a>
+    <a href="/"> <i class="fas fa-home"></i> <span>home</span> </a>
+    <a href="/about.html"> <i class="fas fa-user"></i> <span>about</span> </a>
     <a href="portfolio.html"> <i class="fas fa-briefcase"></i> <span>portfolio</span> </a>
     <a href="blogs.html"> <i class="fas fa-blog"></i> <span>blogs</span> </a>
     <a href="contact.html"> <i class="fas fa-address-book"></i> <span>contact</span> </a>
@@ -28,24 +28,26 @@
 <!-- navbar section ends -->
 
 <!-- home section starts  -->
-
-<section class="home">
-
-    <div class="image">
-        <img src="images/user.jpg" alt="Nguyễn Thành Luân">
-    </div>
-
-    <div class="content">
-        <h3>hi, i am Nguyễn Thành Luân</h3>
-        <span>front-end developer</span>
-        <p>Good morning, everyone! Let me introduce myself. I’m Thành Luân. My full name is Nguyễn Thành Luân. I have been working as a web developer since my graduation from Quy Nhon College Of Engineering And Technology in 2016. As I have stated in my CV, I have cooperated with a few small-sized and medium-sized companies and also worked on my personal projects. I believe what has helped me gain credibility are my good professional skills and my punctuality. I always put my heart and soul into every single website that I develop. I guess that’s all I have to share about myself. Thank you for listening!</p>
-        <a href="about.html" class="btn"> about me <i class="fas fa-user"></i> </a>
-    </div>
-
-</section>
+<div id="swup" class="transition-fade">
+    <section id="swup" class="home">
+    
+        <div class="image">
+            <img src="images/user.jpg" alt="Nguyễn Thành Luân">
+        </div>
+    
+        <div class="content">
+            <h3>hi, i am Nguyễn Thành Luân</h3>
+            <span>front-end developer</span>
+            <p>Good morning, everyone! Let me introduce myself. I’m Thành Luân. My full name is Nguyễn Thành Luân. I have been working as a web developer since my graduation from Quy Nhon College Of Engineering And Technology in 2016. As I have stated in my CV, I have cooperated with a few small-sized and medium-sized companies and also worked on my personal projects. I believe what has helped me gain credibility are my good professional skills and my punctuality. I always put my heart and soul into every single website that I develop. I guess that’s all I have to share about myself. Thank you for listening!</p>
+            <a href="about.html" class="btn"> about me <i class="fas fa-user"></i> </a>
+        </div>
+    
+    </section>
+</div>
 
 <!-- home section ends -->
-<script defer src="./js/jquery-3.6.0.js"></script>
-
+<script src="./js/jquery-3.6.0.js"></script>
+<script defer src="./js/swup.min.js"></script>
+<script defer src="./js/main.js"></script>
 </body>
 </html>

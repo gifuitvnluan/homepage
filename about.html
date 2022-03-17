@@ -18,8 +18,8 @@
 <!-- navbar section starts  -->
 
 <nav class="navbar">
-    <a href="./"> <i class="fas fa-home"></i> <span>home</span> </a>
-    <a href="about.html"> <i class="fas fa-user"></i> <span>about</span> </a>
+    <a href="/"> <i class="fas fa-home"></i> <span>home</span> </a>
+    <a href="/about.html"> <i class="fas fa-user"></i> <span>about</span> </a>
     <a href="portfolio.html"> <i class="fas fa-briefcase"></i> <span>portfolio</span> </a>
     <a href="blogs.html"> <i class="fas fa-blog"></i> <span>blogs</span> </a>
     <a href="contact.html"> <i class="fas fa-address-book"></i> <span>contact</span> </a>
@@ -29,6 +29,7 @@
 
 <!-- about section starts  -->
 
+<div id="swup" class="transition-fade">
 <section class="about">
 
     <h1 class="heading"> about <span>me</span> </h1>
@@ -180,16 +181,27 @@
     </div>
 
 </section>
+</div>
 
 <!-- education section ends -->
 
 <script src="./js/jquery-3.6.0.js"></script>
+<script defer src="./js/swup.min.js"></script>
+<script defer src="./js/main.js"></script>
 <script>
+    document.addEventListener('swup:contentReplaced', (event) => {
+        aboutpage();
+    });
+
     $(document).ready(function(){
+        aboutpage();
+    });
+
+    function aboutpage(){
         var currentYear = new Date().getFullYear();
         $(".span_experience").html(currentYear - 2017);
         $(".span_age").html(currentYear - 1995);
-    })
+    }
 </script>
 </body>
 </html>
