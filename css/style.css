@@ -810,6 +810,14 @@ html.is-leaving .transition-fade {
   opacity: 0;
 }
 
+_::-webkit-full-page-media, _:future, :root .about .row .info-container{
+	margin-bottom: 2rem;
+}
+
+_::-webkit-full-page-media, _:future, :root .about .row .count-container .box{
+	margin: 2rem;
+}
+
 @media (max-width: 1200px) {
   html {
     font-size: 55%;
