@@ -16,8 +16,11 @@ function currentpage(){
     if ($(".portfolio").length > 0) {
         loadweb();
     }
-    if ($(".blogs").length > 0) {
+    if ($(".blogs .box-container").length > 0) {
         loadblog();
+    }
+    if ($(".blogs .blog-single").length > 0) {
+        loadblogsingle();
     }
 }
 
@@ -28,14 +31,12 @@ function replacelink(){
     })
 }
 function aboutpage(){
-    console.log('about');
     var currentYear = new Date().getFullYear();
     $(".span_experience").html(currentYear - 2017);
     $(".span_age").html(currentYear - 1995);
 }
 
 function loadweb(){
-    console.log('portfolio');
     $(".portfolio .box-container .box").slice(0, 8).show();
     $(".btn").on('click', function (e) {
         e.preventDefault();
@@ -50,7 +51,6 @@ function loadweb(){
 }
 
 function loadblog(){
-    console.log('blog');
     var i;
     var j = 1;
     for (i = 0; i < 1; i) {
@@ -80,7 +80,7 @@ function getajax(urlToFile,j) {
         
 
         var allbox;
-        allbox = '<div class="box">'+image+'<div class="content"><div class="icons"><a href="#"> <i class="fas fa-calendar"></i> '+date+' </a><a href="#"> <i class="fas fa-user"></i> by admin </a></div>'+title+'<p>'+description+'</p><a href="./blogs/single.html?page=blog-'+j+'" class="btn"> read more <i class="fas fa-link"></i></a></div></div>'
+        allbox = '<div class="box">'+image+'<div class="content"><div class="icons"><a href="#"> <i class="fas fa-calendar"></i> '+date+' </a><a href="#"> <i class="fas fa-user"></i> by admin </a></div>'+title+'<p>'+description+'</p><a href="'+window.location.origin+'/homepage/blogs/single.html?page=blog-'+j+'" class="btn"> read more <i class="fas fa-link"></i></a></div></div>'
         $('.blogs .box-container').prepend(allbox);
     });
 };
@@ -95,4 +95,49 @@ function doesFileExist(urlToFile) {
     } else {
         return true;
     }
+};
+
+function loadblogsingle(){
+    var $_GET = {};
+    document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+        function decode(s) {
+            return decodeURIComponent(s.split("+").join(" "));
+        }
+
+        $_GET[decode(arguments[1])] = decode(arguments[2]);
+    });
+
+    var urlstring = './blog-news/'+$_GET["page"]+'.html';
+    if(doesFileExist(urlstring)){
+        getajaxsingle(urlstring);
+    }else{
+        get404();
+    }
+}
+
+function get404() {
+        $('.blogs .heading').html("4<span>0</span>4");
+        $('.blogs .blog-single .div_thumbnail').hide();
+        $('.blogs .blog-single h1').html("Sorry, the page you were looking for doesn't exist");
+        $('.blogs .blog-single .div_des').hide();
+        $('.blogs .blog-single .all_content').html('<div class="dl_fl"><a href="../index.html" class="btn"> BACK TO HOME PAGE <i class="fas fa-link"></i></a></div>');
+};
+
+function getajaxsingle(urlToFile) {
+    $.get(urlToFile, function(data, status){
+
+        var datastring = data;
+        datastring = datastring.split('==='); // split into array
+
+        var title = datastring[0].replace('<h3>','').replace('</h3>','');
+
+        var image = datastring[1];
+        image = image.replace('<div class="image"><img src="../','').replace('" alt="thumbnail"></div>','');
+        var content = datastring[3];
+        var date = datastring[4];
+        $('.blogs .blog-single .div_thumbnail').css('background-image','url('+image+')');
+        $('.blogs .blog-single h1').html(title);
+        $('.blogs .blog-single .div_des').html('<div class="icons"><a href="#"> <i class="fas fa-calendar"></i> '+date+' </a><a href="#"> <i class="fas fa-user"></i> by admin </a></div>');
+        $('.blogs .blog-single .all_content').html(content);
+    });
 };

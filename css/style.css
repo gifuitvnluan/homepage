@@ -789,12 +789,26 @@ section {
 .transition-fade {
   transition: 0.4s;
   opacity: 1;
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform-origin: left;
 }
 
 html.is-animating .transition-fade {
-  opacity: 0;
+  opacity: 1;
+  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
 }
 
+html.is-leaving .transition-fade {
+  opacity: 0;
+}
 
 @media (max-width: 1200px) {
   html {
