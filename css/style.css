@@ -818,6 +818,10 @@ _::-webkit-full-page-media, _:future, :root .about .row .count-container .box{
 	margin: 1rem;
 }
 
+_::-webkit-full-page-media, _:future, :root .contact .row .info-container .box-container .box i{
+	margin-right: 0.5rem;
+}
+
 @media (min-width: 768px) {
   .transition-fade {
     transform: translateX(0);
