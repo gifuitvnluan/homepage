@@ -7,6 +7,7 @@ $(document).ready(function(){
 
 document.addEventListener('swup:contentReplaced', (event) => {
     currentpage();
+    $(window).scrollTop(0);
 });
 
 function currentpage(){

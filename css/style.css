@@ -811,11 +811,11 @@ html.is-leaving .transition-fade {
 }
 
 _::-webkit-full-page-media, _:future, :root .about .row .info-container{
-	margin-bottom: 2rem;
+	margin-bottom: 1.5rem;
 }
 
 _::-webkit-full-page-media, _:future, :root .about .row .count-container .box{
-	margin: 1rem;
+	margin: 0.5rem;
 }
 
 _::-webkit-full-page-media, _:future, :root .contact .row .info-container .box-container .box i{
