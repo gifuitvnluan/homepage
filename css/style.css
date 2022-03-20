@@ -815,7 +815,7 @@ _::-webkit-full-page-media, _:future, :root .about .row .info-container{
 }
 
 _::-webkit-full-page-media, _:future, :root .about .row .count-container .box{
-	margin: 2rem;
+	margin: 1rem;
 }
 
 @media (min-width: 768px) {
