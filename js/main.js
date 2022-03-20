@@ -10,6 +10,9 @@ document.addEventListener('swup:contentReplaced', (event) => {
 });
 
 function currentpage(){
+    if ($(".home").length > 0) {
+        toppage();
+    }
     if ($(".about").length > 0) {
         aboutpage();
     }
@@ -30,6 +33,12 @@ function replacelink(){
         $(this).attr('href', window.location.origin + '/homepage' +href);
     })
 }
+
+function toppage(){
+    var href = $('.home .btn').attr('href');
+    $('.home .btn').attr('href', window.location.origin + '/homepage' +href);
+}
+
 function aboutpage(){
     var currentYear = new Date().getFullYear();
     $(".span_experience").html(currentYear - 2017);
