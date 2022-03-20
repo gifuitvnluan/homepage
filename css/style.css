@@ -818,6 +818,25 @@ _::-webkit-full-page-media, _:future, :root .about .row .count-container .box{
 	margin: 2rem;
 }
 
+@media (min-width: 768px) {
+  .transition-fade {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+  }
+  
+  html.is-animating .transition-fade {
+    opacity: 0;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+  }
+}
+
 @media (max-width: 1200px) {
   html {
     font-size: 55%;
