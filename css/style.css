@@ -822,7 +822,7 @@ _::-webkit-full-page-media, _:future, :root .contact .row .info-container .box-c
 	margin-right: 0.5rem;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .transition-fade {
     transform: translateX(0);
     -webkit-transform: translateX(0);
