@@ -5,10 +5,11 @@ $(document).ready(function(){
     currentpage();
 });
 
-document.addEventListener('swup:contentReplaced', (event) => {
+document.addEventListener('swup:contentReplaced', function (event) {
     currentpage();
     $(window).scrollTop(0);
 });
+
 
 function currentpage(){
     if ($(".home").length > 0) {
