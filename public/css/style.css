@@ -822,6 +822,12 @@ _::-webkit-full-page-media, _:future, :root .contact .row .info-container .box-c
 	margin-right: 0.5rem;
 }
 
+.span_experience,
+.span_age{
+  color: inherit;
+  font-weight: inherit;
+}
+
 @media (max-width: 768px) {
   .transition-fade {
     transform: translateX(0);

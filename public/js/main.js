@@ -1,7 +1,6 @@
 const swup = new Swup();
 
 $(document).ready(function(){
-    replacelink();
     currentpage();
 });
 
@@ -12,12 +11,6 @@ document.addEventListener('swup:contentReplaced', function (event) {
 
 
 function currentpage(){
-    if ($(".home").length > 0) {
-        toppage();
-    }
-    if ($(".about").length > 0) {
-        aboutpage();
-    }
     if ($(".portfolio").length > 0) {
         loadweb();
     }
@@ -29,23 +22,6 @@ function currentpage(){
     }
 }
 
-function replacelink(){
-    $('.navbar a').each(function(i){
-        var href = $(this).attr('href');
-        $(this).attr('href', window.location.origin + '/homepage' +href);
-    })
-}
-
-function toppage(){
-    var href = $('.home .btn').attr('href');
-    $('.home .btn').attr('href', window.location.origin + '/homepage' +href);
-}
-
-function aboutpage(){
-    var currentYear = new Date().getFullYear();
-    $(".span_experience").html(currentYear - 2017);
-    $(".span_age").html(currentYear - 1995);
-}
 
 function loadweb(){
     $(".portfolio .box-container .box").slice(0, 8).show();
