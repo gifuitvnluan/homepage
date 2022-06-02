@@ -1,0 +1,38 @@
+<h3>Kết nối MySQL PHP</h3>===
+<div class="image"><img src="../../images/blog8.jpg" alt="thumbnail"></div>===
+<p>MySQL PHP Connection</p>===
+<div>Tạo file databaseconnect.php<pre class="lang:default decode:true">// connect to mysql
+  $localhost = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "web_link";
+  $mysqli = new mysqli($localhost, $username, $password, $dbname);
+
+  // check connection
+  if ($mysqli -> connect_errno) {
+      echo "Kết nối MySQL thất bại: " . $mysqli -> connect_error;
+      exit();
+  }else{
+      echo "Kết nối MySQL thành công.";
+  }
+
+  // Change character set to utf8
+  $mysqli -> set_charset("utf8");
+  echo "Set charset thành công.";
+
+  // create table "table_link"
+  $sql = "CREATE TABLE IF NOT EXISTS table_link (
+      id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+      link VARCHAR(255) NOT NULL,
+      created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+  )";
+  if ($mysqli -> query($sql) == TRUE) {
+      echo "Tạo bảng thành công.";
+  } else {
+      echo "Tạo bảng thất bại: " . $mysqli -> error;
+  }
+  
+  $mysqli -> close();
+  </pre>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script></div>===
+2021/10/12
