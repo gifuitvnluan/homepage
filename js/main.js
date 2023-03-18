@@ -1,4 +1,8 @@
 const swup = new Swup();
+var lazyLoadInstance = new LazyLoad({
+    // Your custom settings go here
+    use_native: true
+});
 
 $(document).ready(function(){
     replacelink();
@@ -93,6 +97,7 @@ function getajax(urlToFile,j) {
         var allbox;
         allbox = '<div class="box">'+image+'<div class="content"><div class="icons"><a href="#"> <i class="fas fa-calendar"></i> '+date+' </a><a href="#"> <i class="fas fa-user"></i> by admin </a></div>'+title+'<p>'+description+'</p><a href="'+window.location.origin+'/homepage/blogs/single.html?page=blog-'+j+'" class="btn"> read more <i class="fas fa-link"></i></a></div></div>'
         $('.blogs .box-container').prepend(allbox);
+        lazyLoadInstance.update();
     });
 };
 
