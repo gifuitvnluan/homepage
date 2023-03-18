@@ -7,10 +7,13 @@ var lazyLoadInstance = new LazyLoad({
 $(document).ready(function(){
     replacelink();
     currentpage();
+    
+    console.log('click');
 });
 
 document.addEventListener('swup:contentReplaced', function (event) {
     currentpage();
+    lazyLoadInstance.update();
     $(window).scrollTop(0);
 });
 
