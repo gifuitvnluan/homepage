@@ -79,9 +79,11 @@ function loadblog(){
     for (i = 0; i < 1; i) {
         var urlstring = './blogs/blog-news/blog-'+j+'.html';
         if(doesFileExist(urlstring)){
-            getajax(urlstring,j);
             j++;
         }else{
+            --j;
+            urlstring = './blogs/blog-news/blog-'+j+'.html';
+            getajax(urlstring,j);
             break;
         }
         
@@ -104,8 +106,13 @@ function getajax(urlToFile,j) {
 
         var allbox;
         allbox = '<div class="box">'+image+'<div class="content"><div class="icons"><a href="#"> <i class="fas fa-calendar"></i> '+date+' </a><a href="#"> <i class="fas fa-user"></i> by admin </a></div>'+title+'<p>'+description+'</p><a href="'+newUrl+'/blogs/single.html?page=blog-'+j+'" class="btn"> read more <i class="fas fa-link"></i></a></div></div>'
-        $('.blogs .box-container').prepend(allbox);
+        $('.blogs .box-container').append(allbox);
         lazyLoadInstance.update();
+        if (j >= 1) {
+            j--;
+            urlstring = './blogs/blog-news/blog-'+j+'.html';
+            getajax(urlstring,j)
+        }
     });
 };
 
