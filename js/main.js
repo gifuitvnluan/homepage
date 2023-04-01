@@ -7,8 +7,6 @@ var lazyLoadInstance = new LazyLoad({
 $(document).ready(function(){
     replacelink();
     currentpage();
-    
-    console.log('click');
 });
 
 document.addEventListener('swup:contentReplaced', function (event) {
@@ -36,16 +34,23 @@ function currentpage(){
     }
 }
 
+const url = window.location.href;
+const endpoint = '/homepage/';
+
+const index = url.indexOf(endpoint);
+const newUrl = url.slice(0, index + endpoint.length);
+
+
 function replacelink(){
     $('.navbar a').each(function(i){
         var href = $(this).attr('href');
-        $(this).attr('href', window.location.origin + '/homepage' +href);
+        $(this).attr('href', newUrl + href);
     })
 }
 
 function toppage(){
     var href = $('.home .btn').attr('href');
-    $('.home .btn').attr('href', window.location.origin + '/homepage' +href);
+    $('.home .btn').attr('href', newUrl + href);
 }
 
 function aboutpage(){
@@ -98,7 +103,7 @@ function getajax(urlToFile,j) {
         
 
         var allbox;
-        allbox = '<div class="box">'+image+'<div class="content"><div class="icons"><a href="#"> <i class="fas fa-calendar"></i> '+date+' </a><a href="#"> <i class="fas fa-user"></i> by admin </a></div>'+title+'<p>'+description+'</p><a href="'+window.location.origin+'/homepage/blogs/single.html?page=blog-'+j+'" class="btn"> read more <i class="fas fa-link"></i></a></div></div>'
+        allbox = '<div class="box">'+image+'<div class="content"><div class="icons"><a href="#"> <i class="fas fa-calendar"></i> '+date+' </a><a href="#"> <i class="fas fa-user"></i> by admin </a></div>'+title+'<p>'+description+'</p><a href="'+newUrl+'/blogs/single.html?page=blog-'+j+'" class="btn"> read more <i class="fas fa-link"></i></a></div></div>'
         $('.blogs .box-container').prepend(allbox);
         lazyLoadInstance.update();
     });
