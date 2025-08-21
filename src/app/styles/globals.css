@@ -390,8 +390,7 @@ section {
   position: relative;
 }
 
-.education .box-container .box i,
-.education .box-container .box svg {
+.education .box-container .box i {
   height: 4.5rem;
   width: 4.5rem;
   line-height: 4.5rem;

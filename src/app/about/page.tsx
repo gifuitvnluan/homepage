@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDownload } from '@fortawesome/free-solid-svg-icons'
+import { faBriefcase, faDownload, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from "react";
 
 export default function About() {
@@ -148,28 +148,28 @@ export default function About() {
         <div className="box-container">
 
             <div className="box">
-                <i className="fas fa-graduation-cap"></i>
+                <i><FontAwesomeIcon icon={faGraduationCap} /></i>
                 <span>2013 - 2016</span>
                 <h3>front-end development</h3>
                 <p>Student at school quy nhon college of engineering and technology</p>
             </div>
 
             <div className="box">
-                <i className="fas fa-graduation-cap"></i>
+                <i><FontAwesomeIcon icon={faBriefcase} /></i>
                 <span>2016 - 2017</span>
                 <h3>front-end development</h3>
                 <p>freelancer</p>
             </div>
 
             <div className="box">
-                <i className="fas fa-graduation-cap"></i>
+                <i><FontAwesomeIcon icon={faBriefcase} /></i>
                 <span>2017 - 2022</span>
                 <h3>front-end development</h3>
                 <p>employee of NINJA Q CO., LTD</p>
             </div>
 
             <div className="box">
-                <i className="fas fa-graduation-cap"></i>
+                <i><FontAwesomeIcon icon={faBriefcase} /></i>
                 <span>2022 - current</span>
                 <h3>front-end development</h3>
                 <p>employee of NgocThien Supply Co., Ltd (NTS)</p>
