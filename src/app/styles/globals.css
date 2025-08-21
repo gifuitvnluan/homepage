@@ -358,6 +358,7 @@ section {
 
 .skills .box-container .box img {
   height: 7rem;
+  margin: 0 auto;
   margin-bottom: 1rem;
 }
 
