@@ -54,6 +54,10 @@ body {
   padding-bottom: 6.5rem;
 }
 
+h1, h2, h3{
+  font-weight: bold;
+}
+
 section {
   padding: 5rem 9%;
 }
