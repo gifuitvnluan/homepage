@@ -10,9 +10,9 @@ export default function About() {
   const [experience, setExperience] = useState(0);
 
   useEffect(() => {
-    var myYear = process.env.NEXT_PUBLIC_YEAR_BORN || 0;
-    var myStartYear = process.env.NEXT_PUBLIC_YEAR_WORK_START || 0;
-    var currentYear = new Date().getFullYear();
+    const myYear = process.env.NEXT_PUBLIC_YEAR_BORN || 0;
+    const myStartYear = process.env.NEXT_PUBLIC_YEAR_WORK_START || 0;
+    const currentYear = new Date().getFullYear();
 
     setAge((Number(currentYear) - (Number(myYear) || 0)));
     setExperience((Number(currentYear) - (Number(myStartYear) || 0)));
@@ -49,7 +49,7 @@ export default function About() {
 
                 </div>
 
-                <a href="./files/nguyen-thanh-luan_cveng.pdf" className="btn" download> download CV <i><FontAwesomeIcon icon={faDownload} /></i></a>
+                <a href="/files/nguyen-thanh-luan_cveng.pdf" className="btn" download> download CV <i><FontAwesomeIcon icon={faDownload} /></i></a>
 
             </div>
 
