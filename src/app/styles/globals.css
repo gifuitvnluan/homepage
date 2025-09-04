@@ -443,7 +443,7 @@ section {
   height: 30rem;
   overflow: hidden;
   position: relative;
-  display: none;
+  /* display: none; */
 }
 
 .portfolio .box-container .box:hover .content {
@@ -499,6 +499,10 @@ section {
   color: #aaa;
 }
 
+.portfolio .div_loadmore{
+  display: flex;
+  justify-content: center;
+}
 
 
 @media all and (-ms-high-contrast:none) {
