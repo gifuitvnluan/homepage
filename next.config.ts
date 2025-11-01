@@ -7,9 +7,9 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'i0.wp.com',
+        hostname: '1tomy.com',
         port: '',
-        pathname: '/1tomy.com/**',
+        pathname: '/**',
       },
     ],
   },

@@ -1,5 +1,7 @@
 "use client"
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRedo } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useRef, useState } from "react";
 import Image from 'next/image';
 
@@ -24,7 +26,7 @@ export default function Blogs() {
   const fetchRSS = async (pageNum: number = 1) => {
       try {
         // setLoading(true);
-        const res = await fetch(`/api/portfolio?page=${pageNum}`);
+        const res = await fetch(`/api/blog?page=${pageNum}`);
         const data = await res.json();
 
         if (data.items && data.items.length > 0) {
@@ -34,7 +36,7 @@ export default function Blogs() {
           setHasMore(false);
         }
       } catch (error) {
-        console.error('Lỗi khi gọi API Portfolio:', error);
+        console.error('Lỗi khi gọi API Blog:', error);
       } finally {
         setLoading(false);
       }
@@ -73,14 +75,14 @@ export default function Blogs() {
 
   return (
     <div  id="swup" className="transition-fade">
-        <section className="portfolio">
+        <section className="blogs">
 
-        <h1 className="heading"> <span>my</span> work </h1>
+        <h1 className="heading"> <span>my</span> blogs </h1>
 
         <div className="box-container">
             {/* RSS Feed Items */}
             {loading ? (
-                <div className="loading"  style={{ color: `white`}}>Đang tải dữ liệu portfolio...</div>
+                <div className="loading"  style={{ color: `white`}}>Đang tải dữ liệu blog...</div>
             ) : (
                 posts.map((item, index) => (
                     <div key={index} className="box">
@@ -104,6 +106,9 @@ export default function Blogs() {
                 ))
             )}
         </div>
+        {/* <div className="div_loadmore">
+            <a href="#" className="btn"> load more <i><FontAwesomeIcon icon={faRedo} /></i> </a>
+        </div> */}
         {/* Loader để trigger scroll */}
         {hasMore && (
           <div ref={loaderRef} className="loading" style={{ textAlign: 'center', color: `white` }}>
