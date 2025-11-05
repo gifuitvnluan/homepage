@@ -60,7 +60,7 @@ export default function Blogs() {
 
     observer.observe(loaderRef.current);
     return () => observer.disconnect();
-  }, [loaderRef.current, hasMore, loading]);
+  }, [loaderRef, hasMore, loading]);
 
   // Khi `page` tăng thì load thêm dữ liệu
   useEffect(() => {

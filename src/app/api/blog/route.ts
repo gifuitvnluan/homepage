@@ -1,6 +1,5 @@
 import Parser from 'rss-parser';
 import { NextResponse } from 'next/server';
-import { request } from 'http';
 
 interface CustomFeedItem {
   title?: string;
@@ -8,6 +7,7 @@ interface CustomFeedItem {
   contentSnippet?: string;
   ['content:encoded']?: string;
   pubDate?: string;
+  author?: string;
 }
 
 export async function GET(request: Request) {
@@ -32,12 +32,20 @@ export async function GET(request: Request) {
         const image =
             extractImage(item['content:encoded']) || extractImage(item.content);
 
+            const date = item.pubDate ? new Date(item.pubDate) : new Date();
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+
+            // Lấy tác giả từ <dc:creator><![CDATA[Tô Mỳ Tôm]]></dc:creator>
+            const author = item['dc:creator'] ? item['dc:creator'] : 'Unknown';
+
         return {
             title: item.title,
-            link: item.contentSnippet,
-            date: item.pubDate,
+            link: item.link,
+            date: `${year}/${month}/${date.getDate()}`,
             description: item.contentSnippet,
             image: image,
+            author: author,
         };
     });
 

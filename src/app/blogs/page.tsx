@@ -1,7 +1,7 @@
 "use client"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRedo } from '@fortawesome/free-solid-svg-icons'
+import { faCalendar, faLink, faUser } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useRef, useState } from "react";
 import Image from 'next/image';
 
@@ -11,6 +11,7 @@ interface BlogItem {
   date: string;
   description: string;
   image?: string;
+  author?: string;
 }
 
 export default function Blogs() {
@@ -62,12 +63,12 @@ export default function Blogs() {
 
     observer.observe(loaderRef.current);
     return () => observer.disconnect();
-  }, [loaderRef.current, hasMore, loading]);
+  }, [loaderRef, hasMore, loading]);
 
   // Khi `page` tăng thì load thêm dữ liệu
   useEffect(() => {
     if (page > 1) {
-      console.log('Loading more portfolio items, page:', page);
+      console.log('Loading more blog items, page:', page);
       setLoadingMore(true);
       fetchRSS(page);
     }
@@ -85,24 +86,30 @@ export default function Blogs() {
                 <div className="loading"  style={{ color: `white`}}>Đang tải dữ liệu blog...</div>
             ) : (
                 posts.map((item, index) => (
-                    <div key={index} className="box">
-                        <Image 
-                            width={380} 
-                            height={300} 
-                            className="lazy" 
-                            src={item.image || '/images/default-portfolio.png'} 
-                            alt={item.title}
-                            onError={(e) => {
-                                const target = e.target as HTMLImageElement;
-                                target.src = '/images/default-portfolio.png';
-                            }}
-                        />
-                        <div className="content">
-                            <h3>{item.title}</h3>
-                            <p>{item.description}</p>
-                            <a href={item.link} target="_blank" rel="noopener noreferrer">read more</a>
-                        </div>
+                  <div className="box" key={index}  >
+                    <div className="image">
+                      <Image 
+                          width={380} 
+                          height={300} 
+                          className="lazy" 
+                          src={item.image || '/images/default-blog.png'} 
+                          alt={item.title}
+                          onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.src = '/images/default-blog.png';
+                          }}
+                      />
                     </div>
+                    <div className="content">
+                      <div className="icons">
+                        <a href="#"> <FontAwesomeIcon icon={faCalendar} /> {item.date} </a>
+                        <a href="#"> <FontAwesomeIcon icon={faUser} /> by {item.author} </a>
+                      </div>
+                      <h3>{item.title}</h3>
+                      <p style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden'}}>{item.description}</p>
+                      <a href={item.link} target='_blank' className="btn" style={{margin: '0 auto'}}> read more <i><FontAwesomeIcon icon={faLink} /></i></a>
+                    </div>
+                  </div>
                 ))
             )}
         </div>

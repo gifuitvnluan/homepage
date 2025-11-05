@@ -1,6 +1,5 @@
 import Parser from 'rss-parser';
 import { NextResponse } from 'next/server';
-import { request } from 'http';
 
 interface CustomFeedItem {
   title?: string;

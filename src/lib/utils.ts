@@ -19,15 +19,7 @@ export function formatDate(dateString: string | undefined): string {
   if (!dateString) return 'N/A';
   try {
     return format(new Date(dateString), 'MMMM d, yyyy');
-  } catch (error) {
+  } catch {
     return dateString; // Fallback to original string if parsing fails
   }
-}
-
-export function getKeywordsForPlaceholder(title: string, categories: string[]): string {
-  let keywords = title.toLowerCase().split(/\s+/).slice(0, 2);
-  if (keywords.length < 2 && categories.length > 0) {
-    keywords.push(...categories[0].toLowerCase().split(/\s+/));
-  }
-  return keywords.slice(0, 2).join(' ');
 }
