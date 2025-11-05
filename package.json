@@ -15,7 +15,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
     "@fortawesome/react-fontawesome": "^0.2.3",
     "date-fns": "^4.1.0",
-    "next": "15.4.4",
+    "next": "15.4.7",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "rss-parser": "^3.13.0"
