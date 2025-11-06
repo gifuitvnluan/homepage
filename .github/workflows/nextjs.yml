@@ -2,7 +2,7 @@ name: Deploy Next.js site to Pages (pnpm)
 
 on:
   push:
-    branches: ["nextjs-static"] # Chạy khi push lên branch này
+    branches: ["nextjs-static"]
   workflow_dispatch:
 
 permissions:
@@ -22,25 +22,31 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
+      # 🟢 Cài Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
 
+      # 🟢 Cài pnpm (đây là bước bạn đang thiếu)
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 9 # hoặc 8 nếu bạn dùng phiên bản cũ hơn
+          version: 9   # hoặc 8 nếu bạn dùng pnpm 8
+          run_install: false
 
+      # 🟢 Cài dependencies
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build Next.js (static export)
+      # 🟢 Build và export static site
+      - name: Build Next.js static site
         run: |
           pnpm next build
           pnpm next export
 
+      # 🟢 Upload artifact (để deploy)
       - name: Upload static files
         uses: actions/upload-pages-artifact@v3
         with:
