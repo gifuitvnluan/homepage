@@ -283,11 +283,11 @@ export default function Blogs() {
                             width={380} 
                             height={300} 
                             className="lazy" 
-                            src={item.image ? `/images/portfolio/${item.image}` : '/images/portfolio/default-portfolio.png'} 
+                            src={item.image ? `./images/portfolio/${item.image}` : './images/portfolio/default-portfolio.png'} 
                             alt={item.title}
                             onError={(e) => {
                                 const target = e.target as HTMLImageElement;
-                                target.src = '/images/portfolio/default-portfolio.png';
+                                target.src = './images/portfolio/default-portfolio.png';
                             }}
                         />
                         <div className="content">

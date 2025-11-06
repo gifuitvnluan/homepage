@@ -9,7 +9,7 @@ export default function Home() {
       <section className="home">
 
           <div className="image">
-            <Image src="/images/user.jpg" alt="Nguyễn Thành Luân" width={500} height={600} />
+            <Image src="./images/user.jpg" alt="Nguyễn Thành Luân" width={500} height={600} />
           </div>
 
           <div className="content">

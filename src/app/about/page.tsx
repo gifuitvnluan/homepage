@@ -86,51 +86,51 @@ export default function About() {
 
         <div className="box-container">
             <div className="box">
-                <Image width={62} height={70} src="/images/icon-1.png" alt="html"/>
+                <Image width={62} height={70} src="./images/icon-1.png" alt="html"/>
                 <h3>html</h3>
             </div>
             <div className="box">
-                <Image width={63} height={70} src="/images/icon-2.png" alt="css"/>
+                <Image width={63} height={70} src="./images/icon-2.png" alt="css"/>
                 <h3>css</h3>
             </div>
             <div className="box">
-                <Image width={61} height={70} src="/images/icon-3.png" alt="javascript"/>
+                <Image width={61} height={70} src="./images/icon-3.png" alt="javascript"/>
                 <h3>javascript</h3>
             </div>
             <div className="box">
-                <Image width={95} height={70} src="/images/icon-4.png" alt="sass"/>
+                <Image width={95} height={70} src="./images/icon-4.png" alt="sass"/>
                 <h3>sass</h3>
             </div>
             <div className="box">
-                <Image width={73} height={70} src="/images/icon-5.png" alt="jquery"/>
+                <Image width={73} height={70} src="./images/icon-5.png" alt="jquery"/>
                 <h3>jquery</h3>
             </div>
             <div className="box">
-                <Image width={67} height={70} src="/images/icon-6.png" alt="laravel"/>
+                <Image width={67} height={70} src="./images/icon-6.png" alt="laravel"/>
                 <h3>laravel</h3>
             </div>
             <div className="box">
-                <Image width={130} height={70} src="/images/icon-10.png" alt="php"/>
+                <Image width={130} height={70} src="./images/icon-10.png" alt="php"/>
                 <h3>php</h3>
             </div>
             <div className="box">
-                <Image width={70} height={70} src="/images/icon-7.png" alt="wordpress"/>
+                <Image width={70} height={70} src="./images/icon-7.png" alt="wordpress"/>
                 <h3>WordPress</h3>
             </div>
             <div className="box">
-                <Image width={70} height={70} src="/images/icon-8.png" alt="adobe-photoshop"/>
+                <Image width={70} height={70} src="./images/icon-8.png" alt="adobe-photoshop"/>
                 <h3>Adobe Photoshop</h3>
             </div>
             <div className="box">
-                <Image width={70} height={70} src="/images/icon-9.png" alt="adobe-illustrator"/>
+                <Image width={70} height={70} src="./images/icon-9.png" alt="adobe-illustrator"/>
                 <h3>Adobe Illustrator</h3>
             </div>
             <div className="box">
-                <Image width={70} height={70} src="/images/icon-11.png" alt="adobe-animate"/>
+                <Image width={70} height={70} src="./images/icon-11.png" alt="adobe-animate"/>
                 <h3>Adobe Animate</h3>
             </div>
             <div className="box">
-                <Image width={127} height={70} src="/images/icon-12.png" alt="asterisk"/>
+                <Image width={127} height={70} src="./images/icon-12.png" alt="asterisk"/>
                 <h3>Asterisk <br/>(Call Center)</h3>
             </div>
         </div>
