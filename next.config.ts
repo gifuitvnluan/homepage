@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // add static
+  output: 'export',
   /* config options here */
   // Add remote patterns for next/image
   images: {
