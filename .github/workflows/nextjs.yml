@@ -43,7 +43,6 @@ jobs:
       - name: Build Next.js static site
         run: |
           pnpm next build
-          pnpm next export
 
       # 🟢 Upload artifact cho Pages
       - name: Upload static files
