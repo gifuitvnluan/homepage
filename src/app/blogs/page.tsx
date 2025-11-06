@@ -14,6 +14,26 @@ interface BlogItem {
   author?: string;
 }
 
+// add data static blog items here if needed
+const staticBlogItems: BlogItem[] = [
+  {
+    title: "Static Blog Post 1",
+    link: "/blog/static-1",
+    date: "2023-01-01",
+    description: "This is a static blog post.",
+    image: "/images/static-1.png",
+    author: "John Doe",
+  },
+  {
+    title: "Static Blog Post 2",
+    link: "/blog/static-2",
+    date: "2023-01-02",
+    description: "This is another static blog post.",
+    image: "/images/static-2.png",
+    author: "Jane Doe",
+  },
+];
+
 export default function Blogs() {
 
   // Fetch RSS feed and set state here
@@ -24,24 +44,27 @@ export default function Blogs() {
   const [hasMore, setHasMore] = useState(true);
   const loaderRef = useRef<HTMLDivElement | null>(null);
 
-  const fetchRSS = async (pageNum: number = 1) => {
-      try {
-        // setLoading(true);
-        const res = await fetch(`/api/blog?page=${pageNum}`);
-        const data = await res.json();
+  // Chỉ lấy data static 
+  const fetchRSS = async (pageNum: number) => {
+    try {
+      // Giả lập phân trang với dữ liệu tĩnh
+      const itemsPerPage = 2;
+      const startIndex = (pageNum - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const newItems = staticBlogItems.slice(startIndex, endIndex);
+      setPosts((prev) => [...prev, ...newItems]);
 
-        if (data.items && data.items.length > 0) {
-          setPosts((prev) => [...prev, ...data.items]);
-          setHasMore(data.hasMore);
-        } else {
-          setHasMore(false);
-        }
-      } catch (error) {
-        console.error('Lỗi khi gọi API Blog:', error);
-      } finally {
-        setLoading(false);
+      // Kiểm tra nếu đã load hết dữ liệu
+
+      if (endIndex >= staticBlogItems.length) {
+        setHasMore(false);
       }
+    } catch (error) {
+      console.error("Lỗi tải dữ liệu Blog:", error);
     }
+    setLoading(false);
+    setLoadingMore(false);
+  };
 
   // Lần đầu load trang
   useEffect(() => {
