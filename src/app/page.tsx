@@ -2,6 +2,12 @@ import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import Link from "next/link";
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "Home | Luân HomePage",
+  description: "Welcome to Luân's homepage",
+};
 
 export default function Home() {
   return (

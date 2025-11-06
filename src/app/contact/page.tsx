@@ -1,7 +1,12 @@
-"use client"
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faMap, faPhone } from '@fortawesome/free-solid-svg-icons'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contact',
+  description: 'Get in touch with Luân',
+};
+
 
 export default function Contact() {
 

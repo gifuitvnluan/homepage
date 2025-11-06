@@ -7,8 +7,12 @@ import { faHome, faUser, faBriefcase, faBlog, faAddressBook } from '@fortawesome
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Home | Luân HomePage",
-  description: "Welcome to Luân's homepage",
+  title: {
+    template: '%s | Luân HomePage',
+    default: 'Luân HomePage',
+  },
+  description: 'Welcome to Luân\'s homepage.',
+  metadataBase: new URL('https://gifuitvnluan.github.io/homepage/'),
 };
 
 const poppins = Poppins({

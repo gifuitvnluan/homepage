@@ -1,3 +1,12 @@
+## [![Time period](https://images.repography.com/38184122/gifuitvnluan/homepage/recent-activity/z1HudbUbUI-mFyMK1WBYKX-ftdHOcBUGcMNyj0rHYUc/JI1NrjRxYbzdEIkzmSVJABxOBM1W8J8YIZiwn-TsDX4_badge.svg)](https://repography.com)
+[![Timeline graph](https://images.repography.com/38184122/gifuitvnluan/homepage/recent-activity/z1HudbUbUI-mFyMK1WBYKX-ftdHOcBUGcMNyj0rHYUc/JI1NrjRxYbzdEIkzmSVJABxOBM1W8J8YIZiwn-TsDX4_timeline.svg)](https://github.com/gifuitvnluan/homepage/commits)
+[![Issue status graph](https://images.repography.com/38184122/gifuitvnluan/homepage/recent-activity/z1HudbUbUI-mFyMK1WBYKX-ftdHOcBUGcMNyj0rHYUc/JI1NrjRxYbzdEIkzmSVJABxOBM1W8J8YIZiwn-TsDX4_issues.svg)](https://github.com/gifuitvnluan/homepage/issues)
+[![Pull request status graph](https://images.repography.com/38184122/gifuitvnluan/homepage/recent-activity/z1HudbUbUI-mFyMK1WBYKX-ftdHOcBUGcMNyj0rHYUc/JI1NrjRxYbzdEIkzmSVJABxOBM1W8J8YIZiwn-TsDX4_prs.svg)](https://github.com/gifuitvnluan/homepage/pulls)
+[![Trending topics](https://images.repography.com/38184122/gifuitvnluan/homepage/recent-activity/z1HudbUbUI-mFyMK1WBYKX-ftdHOcBUGcMNyj0rHYUc/JI1NrjRxYbzdEIkzmSVJABxOBM1W8J8YIZiwn-TsDX4_words.svg)](https://github.com/gifuitvnluan/homepage/commits)
+[![Top contributors](https://images.repography.com/38184122/gifuitvnluan/homepage/recent-activity/z1HudbUbUI-mFyMK1WBYKX-ftdHOcBUGcMNyj0rHYUc/JI1NrjRxYbzdEIkzmSVJABxOBM1W8J8YIZiwn-TsDX4_users.svg)](https://github.com/gifuitvnluan/homepage/graphs/contributors)
+[![Activity map](https://images.repography.com/38184122/gifuitvnluan/homepage/recent-activity/z1HudbUbUI-mFyMK1WBYKX-ftdHOcBUGcMNyj0rHYUc/JI1NrjRxYbzdEIkzmSVJABxOBM1W8J8YIZiwn-TsDX4_map.svg)](https://github.com/gifuitvnluan/homepage/commits)
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
