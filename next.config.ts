@@ -3,18 +3,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // add static
   output: 'export',
-  basePath: '',
+  basePath: '/homepage',
   /* config options here */
   // Add remote patterns for next/image
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '1tomy.com',
-        port: '',
-        pathname: '/**',
-      },
-    ],
+    unoptimized: true,
   },
 }
 
