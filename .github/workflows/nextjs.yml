@@ -1,8 +1,8 @@
-name: Deploy Next.js site to Pages
+name: Deploy Next.js site to Pages (pnpm)
 
 on:
   push:
-    branches: ["nextjs-static"]
+    branches: ["nextjs-static"] # Chạy khi push lên branch này
   workflow_dispatch:
 
 permissions:
@@ -19,62 +19,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout source
         uses: actions/checkout@v4
 
-      # Cài Node.js và bật corepack (để pnpm hoạt động)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: pnpm
 
-      # Cài pnpm (phiên bản 9 trở lên)
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v3
         with:
-          version: 9
-          run_install: false
+          version: 9 # hoặc 8 nếu bạn dùng phiên bản cũ hơn
 
-      # Thiết lập Pages (cho static export)
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-        with:
-          static_site_generator: next
-
-      # Cache thư mục .next để tăng tốc build
-      - name: Restore Next.js cache
-        uses: actions/cache@v4
-        with:
-          path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('pnpm-lock.yaml') }}-${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx', '**/*.ts', '**/*.tsx') }}
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('pnpm-lock.yaml') }}-
-
-      # Cài dependencies
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # Build dự án Next.js
-      - name: Build Next.js app
-        run: pnpm next build
+      - name: Build Next.js (static export)
+        run: |
+          pnpm next build
+          pnpm next export
 
-      # Export static (nếu bạn dùng next export)
-      - name: Export static files
-        run: pnpm next export
-
-      # Upload artifacts (để GitHub Pages lấy ra)
-      - name: Upload artifact
+      - name: Upload static files
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
   deploy:
+    runs-on: ubuntu-latest
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
