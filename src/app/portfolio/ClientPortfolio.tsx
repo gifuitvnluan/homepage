@@ -1,9 +1,11 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react";
+import Skeleton from "./loading";
 import Image from 'next/image';
 
 interface PortfolioItem {
+  id: number;
   title: string;
   link: string;
   date: string;
@@ -14,6 +16,7 @@ interface PortfolioItem {
 // add data static portfolio items here if needed
 const staticPortfolioItems: PortfolioItem[] = [
     {
+      "id": 27,
       "title": "つやま産業支援センター",
       "link": "https://gifuitvnluan.github.io/10200407_tsuyama-biz.jp20200410",
       "date": "Fri, 25 Oct 2024 03:09:40 +0000",
@@ -21,6 +24,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "tsuyama-biz.webp"
     },
     {
+      "id": 26,
       "title": "SMILE SLIDE PUZZLE GAME",
       "link": "https://style.suzuki/smilepuzzlegame",
       "date": "Fri, 25 Oct 2024 03:06:45 +0000",
@@ -28,6 +32,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "smilepuzzlegame.webp"
     },
     {
+      "id": 25,
       "title": "FestinaLente",
       "link": "https://gifuitvnluan.github.io/__FL",
       "date": "Fri, 25 Oct 2024 03:05:54 +0000",
@@ -35,6 +40,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "fl.webp"
     },
     {
+      "id": 24,
       "title": "株式会社ベスト・ハウジング",
       "link": "https://www.besthousing.co.jp",
       "date": "Fri, 25 Oct 2024 03:04:49 +0000",
@@ -42,6 +48,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "besthousing.webp"
     },
     {
+      "id": 23,
       "title": "宮崎で占いならネクストグレスへ　伊勢流・陰陽五行四柱推命とパワーストーンのお店",
       "link": "https://nextgress.com",
       "date": "Fri, 25 Oct 2024 03:03:11 +0000",
@@ -49,6 +56,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "nextgress.webp"
     },
     {
+      "id": 22,
       "title": "「二世帯住宅プランニング | 二世帯住宅の完全分離の間取りや、リノベーションなどでお困りの方」",
       "link": "https://nisetaijyutaku-planning.com",
       "date": "Fri, 25 Oct 2024 03:02:18 +0000",
@@ -56,6 +64,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "nisetaijyutaku-planning.png"
     },
     {
+      "id": 21,
       "title": "式会社厨房サービス",
       "link": "https://www.chubo-s.jp",
       "date": "Fri, 25 Oct 2024 03:01:30 +0000",
@@ -63,6 +72,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "chubo-s.webp"
     },
     {
+      "id": 20,
       "title": "東洋染化株式会社",
       "link": "https://www.toyosennka.jp",
       "date": "Fri, 25 Oct 2024 03:00:42 +0000",
@@ -70,6 +80,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "toyosennka.webp"
     },
     {
+      "id": 19,
       "title": "仙台農産株式会社（宮城県岩沼市）",
       "link": "https://www.sendai-nosan.com",
       "date": "Fri, 25 Oct 2024 02:59:50 +0000",
@@ -77,6 +88,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "sendai-nosan.webp"
     },
     {
+      "id": 18,
       "title": "株式会社菊地電機",
       "link": "https://www.kikuchi-denki.biz",
       "date": "Fri, 25 Oct 2024 02:58:58 +0000",
@@ -84,6 +96,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "kikuchi-denki.webp"
     },
     {
+      "id": 17,
       "title": "SERENESSE",
       "link": "https://gifuitvnluan.github.io/23200501_serenesulp",
       "date": "Fri, 25 Oct 2024 02:57:58 +0000",
@@ -91,6 +104,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "serenesulp.webp"
     },
     {
+      "id": 16,
       "title": "UCHIDA HOUSEI",
       "link": "https://uchida-factory.co.jp",
       "date": "Fri, 25 Oct 2024 02:56:18 +0000",
@@ -98,6 +112,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "uchida-factory.webp"
     },
     {
+      "id": 15,
       "title": "エーデン流通株式会社",
       "link": "http://www.adenryutsu.jp/",
       "date": "Fri, 25 Oct 2024 02:55:23 +0000",
@@ -105,6 +120,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "adenryutsu.webp"
     },
     {
+      "id": 14,
       "title": "総武桶谷ミルクセンター『元気と笑いのある明日へ』",
       "link": "http://okemilk.com",
       "date": "Fri, 25 Oct 2024 02:54:33 +0000",
@@ -112,6 +128,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "okemilk.webp"
     },
     {
+      "id": 13,
       "title": "三恵株式会社",
       "link": "https://iwata.sankei-corp.com",
       "date": "Fri, 25 Oct 2024 02:52:52 +0000",
@@ -119,6 +136,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "sankei-corp.webp"
     },
     {
+      "id": 12,
       "title": "エステルーム chika",
       "link": "https://esteroomchika.com",
       "date": "Fri, 25 Oct 2024 02:51:57 +0000",
@@ -126,6 +144,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "esteroomchika.webp"
     },
     {
+      "id": 11,
       "title": "有限会社赤羽根木工所（岡山県津山市）",
       "link": "https://akabane-wood.com",
       "date": "Fri, 25 Oct 2024 02:50:56 +0000",
@@ -133,6 +152,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "akabane-wood.webp"
     },
     {
+      "id": 10,
       "title": "スタディラウンジリキュウReQつくばみどりの校",
       "link": "https://sl-req.com",
       "date": "Fri, 25 Oct 2024 02:48:51 +0000",
@@ -140,6 +160,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "sl-req.webp"
     },
     {
+      "id": 9,
       "title": "株式会社VICKYエンジニア",
       "link": "https://vicky-g.com",
       "date": "Fri, 25 Oct 2024 02:48:00 +0000",
@@ -147,6 +168,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "vicky-g.webp"
     },
     {
+      "id": 8,
       "title": "SanYoshi ㈱三義漆器店",
       "link": "https://www.owanya.com",
       "date": "Fri, 25 Oct 2024 02:47:07 +0000",
@@ -154,6 +176,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "owanya.webp"
     },
     {
+      "id": 7,
       "title": "IT技術者センター",
       "link": "http://www.ite-center.com/",
       "date": "Fri, 25 Oct 2024 02:46:03 +0000",
@@ -161,6 +184,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "ite-center.webp"
     },
     {
+      "id": 6,
       "title": "たかさき歯科クリニック",
       "link": "https://takasakishika.com",
       "date": "Fri, 25 Oct 2024 02:45:06 +0000",
@@ -168,6 +192,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "takasakishika.webp"
     },
     {
+      "id": 5,
       "title": "獨協医科大学 麻酔科 獨協医大,獨協医科大学病院 麻酔科,麻酔科学講座",
       "link": "https://dept.dokkyomed.ac.jp/dep-m/anes",
       "date": "Fri, 25 Oct 2024 02:43:55 +0000",
@@ -175,6 +200,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "dokkyomed.webp"
     },
     {
+      "id": 4,
       "title": "有限会社堀内工業津山",
       "link": "https://horiuchi-k.com",
       "date": "Fri, 25 Oct 2024 02:42:11 +0000",
@@ -182,6 +208,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "horiuchi-k.webp"
     },
     {
+      "id": 3,
       "title": "有限会社かんばんのクラフト",
       "link": "https://craft-sign.com",
       "date": "Fri, 25 Oct 2024 02:40:10 +0000",
@@ -189,6 +216,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "craft-sign.webp"
     },
     {
+      "id": 2,
       "title": "人材派遣サービス業",
       "link": "https://noa-staff.jp/",
       "date": "Mon, 21 Oct 2024 10:02:33 +0000",
@@ -196,6 +224,7 @@ const staticPortfolioItems: PortfolioItem[] = [
       "image": "noa-staff.webp"
     },
     {
+      "id": 1,
       "title": "髙橋刃物工業株式会社",
       "link": "http://takahashi-tools.jp/index.html",
       "date": "Mon, 21 Oct 2024 09:47:08 +0000",
@@ -216,6 +245,8 @@ export default function Blogs() {
 
   const fetchRSS = async (pageNum: number) => {
     try {
+      // delay giả lập tải dữ liệu
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       // Giả lập phân trang với dữ liệu tĩnh
       const itemsPerPage = 4;
       const startIndex = (pageNum - 1) * itemsPerPage;
@@ -275,10 +306,10 @@ export default function Blogs() {
         <div className="box-container">
             {/* RSS Feed Items */}
             {loading ? (
-                <div className="loading"  style={{ color: `white`}}>Đang tải dữ liệu portfolio...</div>
+                <><Skeleton /><Skeleton /></>
             ) : (
-                posts.map((item, index) => (
-                    <div key={index} className="box">
+                posts.map((item) => (
+                    <div key={item.id} className="box">
                         <Image 
                             width={380} 
                             height={300} 
@@ -298,15 +329,16 @@ export default function Blogs() {
                     </div>
                 ))
             )}
+            {/* Loader để trigger scroll */}
+            {hasMore && (
+              <>
+              {loadingMore ? <Skeleton /> : ''}
+              <div ref={loaderRef} style={{ opacity: 0 }}></div>
+              </>
+            )}
         </div>
-        {/* Loader để trigger scroll */}
-        {hasMore && (
-          <div ref={loaderRef} className="loading" style={{ textAlign: 'center', color: `white` }}>
-            {loadingMore ? 'Đang tải thêm...' : ''}
-          </div>
-        )}
 
-        {!hasMore && <p className="loading" style={{ textAlign: 'center', color: 'white' }}>Đã load hết dữ liệu.</p>}
+         {!hasMore && <p style={{ textAlign: 'center', color: 'white', marginTop: '1rem' }}>Đã load hết dữ liệu.</p>}
     </section>
     </div>
   );

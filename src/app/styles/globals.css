@@ -945,13 +945,13 @@ _::-webkit-full-page-media, _:future, :root .contact .row .info-container .box-c
 /*# sourceMappingURL=style.css.map */
 
 /* add Github */
-.loading {
+/* .loading {
     text-align: center;
     padding: 2rem;
     font-size: 1.2rem;
     color: #666;
-    grid-column: 1 / -1; /* Span across all columns */
-}
+    grid-column: 1 / -1;
+} */
 
 .box img {
     transition: opacity 0.3s ease;
