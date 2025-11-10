@@ -6,7 +6,7 @@ on:
 
 env:
     NEXT_PUBLIC_YEAR_BORN: 1995
-    NEXT_PUBLIC_YEAR_WORK_START: 2007
+    NEXT_PUBLIC_YEAR_WORK_START: 2017
     ss: ${{ secrets.NEXT_PUBLIC_YEAR_BORN }}
     ss1: ${{ secrets.NEXT_PUBLIC_YEAR_BORN }}
 
