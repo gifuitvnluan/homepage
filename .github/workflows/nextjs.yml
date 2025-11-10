@@ -6,10 +6,8 @@ on:
   workflow_dispatch:
 
 env:
-  NEXT_PUBLIC_YEAR_BORN: 1995
-  NEXT_PUBLIC_YEAR_WORK_START: 2017
-  ss: ${{ secrets.NEXT_PUBLIC_YEAR_BORN }}
-  ss1: ${{ secrets.NEXT_PUBLIC_YEAR_WORK_START }}
+  NEXT_PUBLIC_YEAR_BORN: ${{ secrets.NEXT_PUBLIC_YEAR_BORN }}
+  NEXT_PUBLIC_YEAR_WORK_START: ${{ secrets.NEXT_PUBLIC_YEAR_WORK_START }}
 
 permissions:
   contents: read
@@ -24,7 +22,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment: github-pages
-    
+
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -42,11 +40,6 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-
-      - name: Check env values
-        run: |
-          echo "YEAR_BORN=$ss"
-          echo "YEAR_WORK_START=$ss1"
 
       - name: Build Next.js static site
         run: pnpm next build
