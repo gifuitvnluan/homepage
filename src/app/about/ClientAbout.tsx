@@ -8,10 +8,17 @@ import { useEffect, useState } from "react";
 export default function About() {
   const [age, setAge] = useState(0);
   const [experience, setExperience] = useState(0);
+  const [pathBase, setPathBase] = useState('');
 
   useEffect(() => {
     const myYear = process.env.NEXT_PUBLIC_YEAR_BORN || 0;
     const myStartYear = process.env.NEXT_PUBLIC_YEAR_WORK_START || 0;
+
+    const isProd = process.env.NODE_ENV === 'production'
+    if (isProd) {
+      setPathBase(process.env.NEXT_PUBLIC_PATH_BASE || '');
+    }
+
     const currentYear = new Date().getFullYear();
 
     setAge((Number(currentYear) - (Number(myYear) || 0)));
@@ -49,7 +56,7 @@ export default function About() {
 
                 </div>
 
-                <a href="/files/nguyen-thanh-luan_cveng.pdf" className="btn" download> download CV <i><FontAwesomeIcon icon={faDownload} /></i></a>
+                <a href={`${pathBase}/files/nguyen-thanh-luan_cveng.pdf`} className="btn" download> download CV <i><FontAwesomeIcon icon={faDownload} /></i></a>
 
             </div>
 

@@ -8,6 +8,7 @@ on:
 env:
   NEXT_PUBLIC_YEAR_BORN: ${{ secrets.NEXT_PUBLIC_YEAR_BORN }}
   NEXT_PUBLIC_YEAR_WORK_START: ${{ secrets.NEXT_PUBLIC_YEAR_WORK_START }}
+  NEXT_PUBLIC_PATH_BASE: ${{ secrets.NEXT_PUBLIC_PATH_BASE }}
 
 permissions:
   contents: read
