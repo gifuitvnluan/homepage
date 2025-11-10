@@ -7,6 +7,7 @@ on:
 env:
     NEXT_PUBLIC_YEAR_BORN: ${{ secrets.NEXT_PUBLIC_YEAR_BORN }}
     NEXT_PUBLIC_YEAR_WORK_START: ${{ secrets.NEXT_PUBLIC_YEAR_BORN }}
+    ss: 'tét'
 
 permissions:
   contents: read
