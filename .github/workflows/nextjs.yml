@@ -1,14 +1,15 @@
 name: Deploy Next.js site to Pages (pnpm)
+
 on:
   push:
     branches: ["nextjs-static"]
   workflow_dispatch:
 
 env:
-    NEXT_PUBLIC_YEAR_BORN: 1995
-    NEXT_PUBLIC_YEAR_WORK_START: 2017
-    ss: ${{ secrets.NEXT_PUBLIC_YEAR_BORN }}
-    ss1: ${{ secrets.NEXT_PUBLIC_YEAR_BORN }}
+  NEXT_PUBLIC_YEAR_BORN: 1995
+  NEXT_PUBLIC_YEAR_WORK_START: 2017
+  ss: ${{ secrets.NEXT_PUBLIC_YEAR_BORN }}
+  ss1: ${{ secrets.NEXT_PUBLIC_YEAR_WORK_START }}
 
 permissions:
   contents: read
@@ -27,29 +28,31 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
-      # 🟢 Cài pnpm trước
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
           version: 9
 
-      # 🟢 Cài Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
 
-      # 🟢 Cài dependencies
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # 🟢 Build & Export Next.js static site
-      - name: Build Next.js static site
+      - name: Check env values
         run: |
-          pnpm next build
+          echo "YEAR_BORN=$ss"
+          echo "YEAR_WORK_START=$ss1"
 
-      # 🟢 Upload artifact cho Pages
+      - name: Build Next.js static site
+        run: pnpm next build
+
+      - name: Export static site
+        run: pnpm next export
+
       - name: Upload static files
         uses: actions/upload-pages-artifact@v3
         with:
