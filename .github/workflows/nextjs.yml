@@ -50,9 +50,6 @@ jobs:
       - name: Build Next.js static site
         run: pnpm next build
 
-      - name: Export static site
-        run: pnpm next export
-
       - name: Upload static files
         uses: actions/upload-pages-artifact@v3
         with:
