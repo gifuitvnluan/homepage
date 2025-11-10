@@ -5,9 +5,10 @@ on:
   workflow_dispatch:
 
 env:
-    NEXT_PUBLIC_YEAR_BORN: ${{ secrets.NEXT_PUBLIC_YEAR_BORN }}
-    NEXT_PUBLIC_YEAR_WORK_START: ${{ secrets.NEXT_PUBLIC_YEAR_BORN }}
-    ss: 'tét'
+    NEXT_PUBLIC_YEAR_BORN: 1995
+    NEXT_PUBLIC_YEAR_WORK_START: 2007
+    ss: ${{ secrets.NEXT_PUBLIC_YEAR_BORN }}
+    ss1: ${{ secrets.NEXT_PUBLIC_YEAR_BORN }}
 
 permissions:
   contents: read
