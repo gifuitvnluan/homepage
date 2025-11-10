@@ -3,9 +3,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faLink, faUser } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useRef, useState } from "react";
+import Skeleton from './loading';
 import Image from 'next/image';
 
 interface BlogItem {
+  id: number;
   title: string;
   link: string;
   date: string;
@@ -17,6 +19,7 @@ interface BlogItem {
 // add data static blog items here if needed
 const staticBlogItems: BlogItem[] = [
   {
+      "id": 13,
       "title": "Hướng dẫn cài Xdebug để debug lỗi",
       "link": "https://1tomy.com/2024/12/17/huong-dan-cai-xdebug-de-debug-loi/",
       "date": "2024/12/17",
@@ -25,6 +28,7 @@ const staticBlogItems: BlogItem[] = [
       "author": "Tô Mỳ Tôm"
     },
     {
+      "id": 12,
       "title": "Hướng dẫn cài đặt và cấu hình Redis Cache trên aaPanel",
       "link": "https://1tomy.com/2024/12/14/huong-dan-cai-dat-va-cau-hinh-redis-cache-tren-aapanel/",
       "date": "2024/12/14",
@@ -33,6 +37,7 @@ const staticBlogItems: BlogItem[] = [
       "author": "Tô Mỳ Tôm"
     },
     {
+      "id": 11,
       "title": "Hướng dẫn sử dụng Filezilla Server để tạo FTP",
       "link": "https://1tomy.com/2024/11/07/huong-dan-su-dung-filezilla-server-de-tao-ftp/",
       "date": "2024/11/7",
@@ -41,6 +46,7 @@ const staticBlogItems: BlogItem[] = [
       "author": "Tô Mỳ Tôm"
     },
     {
+      "id": 10,
       "title": "Một số link hay dùng cho front end và back end",
       "link": "https://1tomy.com/2024/10/25/mot-so-link-hay-dung-cho-front-end-va-back-end/",
       "date": "2024/10/25",
@@ -49,6 +55,7 @@ const staticBlogItems: BlogItem[] = [
       "author": "Tô Mỳ Tôm"
     },
     {
+      "id": 9,
       "title": "Hướng dẫn tạo kết nối PHP với MySQL",
       "link": "https://1tomy.com/2024/10/24/huong-dan-tao-ket-noi-php-voi-mysql/",
       "date": "2024/10/24",
@@ -57,6 +64,7 @@ const staticBlogItems: BlogItem[] = [
       "author": "Tô Mỳ Tôm"
     },
     {
+      "id": 8,
       "title": "Giới thiệu tool sử dụng AI để chuyển ngôn ngữ của người thành ngôn ngữ SQL",
       "link": "https://1tomy.com/2024/10/23/gioi-thieu-tool-su-dung-ai-de-chuyen-ngon-ngu-cua-nguoi-thanh-ngon-ngu-sql/",
       "date": "2024/10/23",
@@ -65,6 +73,7 @@ const staticBlogItems: BlogItem[] = [
       "author": "Tô Mỳ Tôm"
     },
     {
+      "id": 7,
       "title": "Hướng dẫn tạo chức năng so sánh hình bằng Jquery",
       "link": "https://1tomy.com/2024/10/23/huong-dan-tao-chuc-nang-so-sanh-hinh-bang-jquery/",
       "date": "2024/10/23",
@@ -73,6 +82,7 @@ const staticBlogItems: BlogItem[] = [
       "author": "Tô Mỳ Tôm"
     },
     {
+      "id": 6,
       "title": "Tạo Hình 360° bằng JS",
       "link": "https://1tomy.com/2024/10/23/tao-hinh-360-bang-js/",
       "date": "2024/10/23",
@@ -81,6 +91,7 @@ const staticBlogItems: BlogItem[] = [
       "author": "Tô Mỳ Tôm"
     },
     {
+      "id": 5,
       "title": "Jquery Tự Động Canh Nút Backtop Với Footer Khi Sử Dụng Position Fixed",
       "link": "https://1tomy.com/2024/10/23/jquery-tu-dong-canh-nut-backtop-voi-footer-khi-su-dung-position-fixed/",
       "date": "2024/10/23",
@@ -89,6 +100,7 @@ const staticBlogItems: BlogItem[] = [
       "author": "Tô Mỳ Tôm"
     },
     {
+      "id": 4,
       "title": "Hướng dẫn nén và giải nén trên FTP",
       "link": "https://1tomy.com/2024/10/23/huong-dan-nen-va-giai-nen-tren-filezila/",
       "date": "2024/10/23",
@@ -97,6 +109,7 @@ const staticBlogItems: BlogItem[] = [
       "author": "Tô Mỳ Tôm"
     },
     {
+      "id": 3,
       "title": "Jquery tự động cho chiều cao header khi sử dụng position fixed",
       "link": "https://1tomy.com/2024/10/23/jquery-tu-dong-cho-chieu-cao-header-khi-su-dung-position-fixed/",
       "date": "2024/10/23",
@@ -105,6 +118,7 @@ const staticBlogItems: BlogItem[] = [
       "author": "Tô Mỳ Tôm"
     },
     {
+      "id": 2,
       "title": "Scroll content popup bootstrap với jquery",
       "link": "https://1tomy.com/2024/10/23/scroll-content-popup-bootstrap-voi-jquery/",
       "date": "2024/10/23",
@@ -113,6 +127,7 @@ const staticBlogItems: BlogItem[] = [
       "author": "Tô Mỳ Tôm"
     },
     {
+      "id": 1,
       "title": "Thay hình bằng Jquery khi vào Smartphone",
       "link": "https://1tomy.com/2024/10/22/thay-hinh-bang-jquery-khi-vao-smartphone/",
       "date": "2024/10/22",
@@ -135,6 +150,8 @@ export default function Blogs() {
   // Chỉ lấy data static 
   const fetchRSS = async (pageNum: number) => {
     try {
+      // delay giả lập tải dữ liệu
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       // Giả lập phân trang với dữ liệu tĩnh
       const itemsPerPage = 4;
       const startIndex = (pageNum - 1) * itemsPerPage;
@@ -194,10 +211,10 @@ export default function Blogs() {
         <div className="box-container">
             {/* RSS Feed Items */}
             {loading ? (
-                <div className="loading"  style={{ color: `white`}}>Đang tải dữ liệu blog...</div>
+                <><Skeleton /><Skeleton /></>
             ) : (
-                posts.map((item, index) => (
-                  <div className="box" key={index}  >
+                posts.map((item) => (
+                  <div className="box" key={item.id} >
                     <div className="image">
                       <Image 
                           width={380} 
@@ -223,18 +240,16 @@ export default function Blogs() {
                   </div>
                 ))
             )}
-        </div>
-        {/* <div className="div_loadmore">
-            <a href="#" className="btn"> load more <i><FontAwesomeIcon icon={faRedo} /></i> </a>
-        </div> */}
-        {/* Loader để trigger scroll */}
-        {hasMore && (
-          <div ref={loaderRef} className="loading" style={{ textAlign: 'center', color: `white` }}>
-            {loadingMore ? 'Đang tải thêm...' : ''}
-          </div>
-        )}
 
-        {!hasMore && <p className="loading" style={{ textAlign: 'center', color: 'white' }}>Đã load hết dữ liệu.</p>}
+            {hasMore && (
+              <>
+              {loadingMore ? <Skeleton /> : ''}
+              <div ref={loaderRef} style={{ opacity: 0 }}></div>
+              </>
+            )}
+        </div>
+
+        {!hasMore && <p style={{ textAlign: 'center', color: 'white', marginTop: '1rem' }}>Đã load hết dữ liệu.</p>}
     </section>
     </div>
   );

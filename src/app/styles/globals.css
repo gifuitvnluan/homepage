@@ -961,3 +961,33 @@ _::-webkit-full-page-media, _:future, :root .contact .row .info-container .box-c
     opacity: 0.7;
     background-color: #f0f0f0;
 }
+
+/* Skeleton loading */
+
+.loading-bg{
+	background: #FFF;
+}
+
+.loading {
+	background: #EDEDED;
+}
+
+.skeleton {
+	background: linear-gradient(
+		90deg,
+		#EDEDED 30%,
+		#1a1a1a 50%,
+		#EDEDED 70%
+	);
+	background-size: 400%;
+	animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: 100% 100%;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
