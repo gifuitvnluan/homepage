@@ -142,7 +142,6 @@ export default function Blogs() {
   // Fetch RSS feed and set state here
   const [posts, setPosts] = useState<BlogItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [loadingMore, setLoadingMore] = useState(false);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const loaderRef = useRef<HTMLDivElement | null>(null);
@@ -151,9 +150,9 @@ export default function Blogs() {
   const fetchRSS = async (pageNum: number) => {
     try {
       // delay giả lập tải dữ liệu
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 500));
       // Giả lập phân trang với dữ liệu tĩnh
-      const itemsPerPage = 4;
+      const itemsPerPage = 10;
       const startIndex = (pageNum - 1) * itemsPerPage;
       const endIndex = startIndex + itemsPerPage;
       const newItems = staticBlogItems.slice(startIndex, endIndex);
@@ -168,7 +167,6 @@ export default function Blogs() {
       console.error("Lỗi tải dữ liệu Blog:", error);
     }
     setLoading(false);
-    setLoadingMore(false);
   };
 
   // Lần đầu load trang
@@ -197,7 +195,6 @@ export default function Blogs() {
   useEffect(() => {
     if (page > 1) {
       console.log('Loading more blog items, page:', page);
-      setLoadingMore(true);
       fetchRSS(page);
     }
   }, [page]);
@@ -211,7 +208,7 @@ export default function Blogs() {
         <div className="box-container">
             {/* RSS Feed Items */}
             {loading ? (
-                <><Skeleton /><Skeleton /></>
+                <><Skeleton /><Skeleton /><Skeleton /></>
             ) : (
                 posts.map((item) => (
                   <div className="box" key={item.id} >
@@ -243,8 +240,14 @@ export default function Blogs() {
 
             {hasMore && (
               <>
-              {loadingMore ? <Skeleton /> : ''}
-              <div ref={loaderRef} style={{ opacity: 0 }}></div>
+                <div ref={loaderRef} className="box loading-bg">
+                  <div className="image skeleton loading" style={{ width: '100%', height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }} />
+                  <div className="content">
+                    <h3 style={{ marginBottom: '1rem' }}> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h3>
+                    <p className="skeleton loading" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden', marginBottom: '1rem'}}> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                    <a href="#" className="btn skeleton loading" style={{margin: '0 auto'}}> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a>
+                  </div>
+                </div>
               </>
             )}
         </div>

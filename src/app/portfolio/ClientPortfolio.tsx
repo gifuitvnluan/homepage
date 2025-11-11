@@ -238,7 +238,6 @@ export default function Blogs() {
   // Fetch RSS feed and set state here
   const [posts, setPosts] = useState<PortfolioItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [loadingMore, setLoadingMore] = useState(false);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const loaderRef = useRef<HTMLDivElement | null>(null);
@@ -246,9 +245,9 @@ export default function Blogs() {
   const fetchRSS = async (pageNum: number) => {
     try {
       // delay giả lập tải dữ liệu
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 500));
       // Giả lập phân trang với dữ liệu tĩnh
-      const itemsPerPage = 4;
+      const itemsPerPage = 10;
       const startIndex = (pageNum - 1) * itemsPerPage;
       const endIndex = startIndex + itemsPerPage;
       const newItems = staticPortfolioItems.slice(startIndex, endIndex);
@@ -263,7 +262,6 @@ export default function Blogs() {
       console.error("Lỗi tải dữ liệu Portfolio:", error);
     }
     setLoading(false);
-    setLoadingMore(false);
   };
 
   // Lần đầu load trang
@@ -292,7 +290,6 @@ export default function Blogs() {
   useEffect(() => {
     if (page > 1) {
       console.log('Loading more portfolio items, page:', page);
-      setLoadingMore(true);
       fetchRSS(page);
     }
   }, [page]);
@@ -306,7 +303,7 @@ export default function Blogs() {
         <div className="box-container">
             {/* RSS Feed Items */}
             {loading ? (
-                <><Skeleton /><Skeleton /></>
+                <><Skeleton /><Skeleton /><Skeleton /></>
             ) : (
                 posts.map((item) => (
                     <div key={item.id} className="box">
@@ -332,8 +329,9 @@ export default function Blogs() {
             {/* Loader để trigger scroll */}
             {hasMore && (
               <>
-              {loadingMore ? <Skeleton /> : ''}
-              <div ref={loaderRef} style={{ opacity: 0 }}></div>
+              <div ref={loaderRef} className="box skeleton loading">
+                <div className="image skeleton loading" style={{ width: '100%', height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }} />
+              </div>
               </>
             )}
         </div>
