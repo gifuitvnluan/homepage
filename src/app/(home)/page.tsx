@@ -13,7 +13,7 @@ export default function Home() {
   return (
       <section className="home">
           <div className="image">
-            <Image src="/images/user.jpg" alt="Nguyễn Thành Luân" width={500} height={600} />
+            <Image src={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/user.jpg`} alt="Nguyễn Thành Luân" width={500} height={600} />
           </div>
 
           <div className="content">

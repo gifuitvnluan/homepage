@@ -214,11 +214,11 @@ export default function Blogs() {
                           width={380} 
                           height={300} 
                           className="lazy" 
-                          src={item.image ? `/images/blogs/${item.image}` : '/images/blogs/default-blog.png'} 
+                          src={item.image ? `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/blogs/${item.image}` : `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/blogs/default-blog.png`} 
                           alt={item.title}
                           onError={(e) => {
                               const target = e.target as HTMLImageElement;
-                              target.src = '/images/blogs/default-blog.png';
+                              target.src = `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/blogs/default-blog.png`;
                           }}
                       />
                     </div>
