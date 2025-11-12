@@ -214,11 +214,11 @@ export default function Blogs() {
                           width={380} 
                           height={300} 
                           className="lazy" 
-                          src={item.image ? `./images/blogs/${item.image}` : './images/blogs/default-blog.png'} 
+                          src={item.image ? `/images/blogs/${item.image}` : '/images/blogs/default-blog.png'} 
                           alt={item.title}
                           onError={(e) => {
                               const target = e.target as HTMLImageElement;
-                              target.src = './images/blogs/default-blog.png';
+                              target.src = '/images/blogs/default-blog.png';
                           }}
                       />
                     </div>
@@ -249,7 +249,7 @@ export default function Blogs() {
             )}
         </div>
 
-        {!hasMore && <p style={{ textAlign: 'center', color: 'white', marginTop: '1rem' }}>Đã load hết dữ liệu.</p>}
+        {!hasMore && <p style={{ textAlign: 'center', color: 'white', marginTop: '3rem' }}>Đã load hết dữ liệu.</p>}
     </section>
   );
 }

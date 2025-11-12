@@ -308,11 +308,11 @@ export default function Blogs() {
                             width={380} 
                             height={300} 
                             className="lazy" 
-                            src={item.image ? `./images/portfolio/${item.image}` : './images/portfolio/default-portfolio.png'} 
+                            src={item.image ? `/images/portfolio/${item.image}` : '/images/portfolio/default-portfolio.png'} 
                             alt={item.title}
                             onError={(e) => {
                                 const target = e.target as HTMLImageElement;
-                                target.src = './images/portfolio/default-portfolio.png';
+                                target.src = '/images/portfolio/default-portfolio.png';
                             }}
                         />
                         <div className="content">
@@ -333,7 +333,7 @@ export default function Blogs() {
             )}
         </div>
 
-         {!hasMore && <p style={{ textAlign: 'center', color: 'white', marginTop: '1rem' }}>Đã load hết dữ liệu.</p>}
+         {!hasMore && <p style={{ textAlign: 'center', color: 'white', marginTop: '3rem' }}>Đã load hết dữ liệu.</p>}
     </section>
   );
 }
