@@ -93,7 +93,7 @@ export default function About() {
 
         <div className="box-container">
             <div className="box">
-                <Image width={62} height={70} src={`{process.env.NODE_ENV === 'production' ? ${process.env.NEXT_PUBLIC_PATH_BASE} : ""}/images/icon-1.png`} alt="html"/>
+                <Image width={62} height={70} src={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/icon-1.png`} alt="html"/>
                 <h3>html</h3>
             </div>
             <div className="box">
