@@ -213,9 +213,11 @@ export default function Blogs() {
                       <Image 
                           width={380} 
                           height={300} 
-                          className="lazy" 
+                          className="lazy"
                           src={item.image ? `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/blogs/${item.image}` : `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/blogs/default-blog.png`} 
                           alt={item.title}
+                          placeholder="blur"
+                          blurDataURL={item.image ? `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAECAYAAACzzX7wAAAAfUlEQVR4ARTKPQrCQBiE4Xc/4w8iIZofEGxyMr2GjQew8whiHfRIVpaBIJIi2R03Aw8MzNh5l+paZrrvc73qQs+61CP2W5XpkqeyxMHCOTZbOBwH6tNAVRhrM6bYKo6TsXP0UdfCN+qD8AKbx8MyGiU+TcK7mdF6z0+BAPwBAAD//5CfA9gAAAAGSURBVAMAWakq/5SnbgwAAAAASUVORK5CYII=` : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA0klEQVR4ASyNO2sCURCFv0wwYAhZ3SgxBCGkSBVNwNJSsLL3r1rZaWUlguITRVBUFvGxrrru9e7VYZ7nzMwRYmllwkqrqP2t0DWcI/EvgwsKyGQp2H+UEnny8SzlVJGindMEiMmDPrVNj/rjnq64VJwG1XXLUMKDrq7LW/KJ988VmZTHcyzg4LuE30XTxi+//6wiFp5v8ZH8wRzCXUI3886YydmmKQlay4W51vB94dXSwAVx5njHJco/IdEXwi83ie0GZlOCYRt/1ObszAi8HaFdAQAA//+IiKRcAAAABklEQVQDAA6BSnoMDFJHAAAAAElFTkSuQmCC'}
                           onError={(e) => {
                               const target = e.target as HTMLImageElement;
                               target.src = `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/blogs/default-blog.png`;
