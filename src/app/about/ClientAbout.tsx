@@ -27,7 +27,7 @@ export default function About() {
   }, []);
 
   return (
-    <div  id="swup" className="transition-fade">
+    <>
       <section className="about">
 
         <h1 className="heading"> about <span>me</span> </h1>
@@ -185,6 +185,6 @@ export default function About() {
         </div>
 
     </section>
-    </div>
+    </>
   );
 }

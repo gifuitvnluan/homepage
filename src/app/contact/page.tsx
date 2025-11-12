@@ -11,10 +11,7 @@ export const metadata: Metadata = {
 export default function Contact() {
 
   return (
-    <div id="swup" className="transition-fade">
-
       <section className="contact">
-
         <h1 className="heading"> contact <span>me</span> </h1>
 
         <div className="row">
@@ -83,7 +80,5 @@ export default function Contact() {
         </div>
 
     </section>
-
-    </div>
   );
 }

@@ -295,11 +295,8 @@ export default function Blogs() {
   }, [page]);
 
   return (
-    <div  id="swup" className="transition-fade">
-        <section className="portfolio">
-
+      <section className="portfolio">
         <h1 className="heading"> <span>my</span> work </h1>
-
         <div className="box-container">
             {/* RSS Feed Items */}
             {loading ? (
@@ -338,6 +335,5 @@ export default function Blogs() {
 
          {!hasMore && <p style={{ textAlign: 'center', color: 'white', marginTop: '1rem' }}>Đã load hết dữ liệu.</p>}
     </section>
-    </div>
   );
 }

@@ -11,9 +11,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div  id="swup" className="transition-fade">
       <section className="home">
-
           <div className="image">
             <Image src="./images/user.jpg" alt="Nguyễn Thành Luân" width={500} height={600} />
           </div>
@@ -26,6 +24,5 @@ export default function Home() {
           </div>
       
       </section>
-    </div>
   );
 }
