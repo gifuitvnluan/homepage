@@ -6,6 +6,7 @@ const pathBase = process.env.NEXT_PUBLIC_PATH_BASE || ''
 const nextConfig: NextConfig = {
   // Add Static
   output: 'export',
+  trailingSlash: true,
   basePath: isProd ? pathBase : '',
   // Add remote patterns for next/image
   images: {
