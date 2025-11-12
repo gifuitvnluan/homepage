@@ -1,41 +1,35 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useSelectedLayoutSegment } from "next/navigation";
+import { usePathname } from "next/navigation";  // ← Thêm import này (thay vì useSelectedLayoutSegment)
 import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useContext, useEffect, useRef } from "react";
 
-// Hook được sửa lần 2: Thêm explicit (undefined) để TS chấp nhận
+// Hook usePreviousValue giữ nguyên (đã fix trước)
 function usePreviousValue<T>(value: T): T | undefined {
-  // Thay đổi: useRef<T | undefined>(undefined) – explicit initial để tránh "expected 1 arg"
-  // Điều này đảm bảo ref type là MutableRefObject<T | undefined>, bắt đầu với undefined
   const prevValue = useRef<T | undefined>(undefined);
   
   useEffect(() => {
-    // Lưu value hiện tại vào ref (thực tế là previous value cho lần sau)
-    // Lưu ý: Để return đúng previous, cần swap logic một chút nếu cần, nhưng ở đây ổn
     prevValue.current = value;
-    
     return () => {
-      prevValue.current = undefined;  // Cleanup để tránh memory leak khi unmount
+      prevValue.current = undefined;
     };
-  }, [value]);  // Dependency array để effect chỉ chạy khi value thay đổi
+  }, [value]);
 
-  // Return previous value (lần đầu: undefined)
   return prevValue.current;
 }
 
-// Phần FrozenRouter và LayoutTransition giữ nguyên (không thay đổi)
+// FrozenRouter cập nhật: Dùng pathname thay segment
 function FrozenRouter(props: { children: React.ReactNode }) {
   const context = useContext(LayoutRouterContext);
   const prevContext = usePreviousValue(context) || null;
-  const segment = useSelectedLayoutSegment();
-  const prevSegment = usePreviousValue(segment);
+  const pathname = usePathname();  // ← Thay useSelectedLayoutSegment() bằng usePathname()
+  const prevPathname = usePreviousValue(pathname);
 
+  // Changed logic: So sánh pathname (luôn string, không undefined)
   const changed =
-    segment !== prevSegment &&
-    segment !== undefined &&
-    prevSegment !== undefined;
+    pathname !== prevPathname &&
+    prevPathname !== undefined;  // Bỏ segment !== undefined vì pathname luôn có giá trị
 
   return (
     <LayoutRouterContext.Provider value={changed ? prevContext : context}>
@@ -60,21 +54,21 @@ export function LayoutTransition({
   style,
   initial,
   animate,
-  exit,
   transition,
+  exit,
 }: LayoutTransitionProps) {
-  const segment = useSelectedLayoutSegment();
+  const pathname = usePathname();  // ← Thay segment bằng pathname cho key
 
   return (
     <AnimatePresence mode="wait" initial={false}>
       <motion.div
         className={className}
         style={style}
-        key={segment}
+        key={pathname}  // ← Key dựa trên pathname: "/" cho home, "/about" cho about → unique luôn
         initial={initial}
         animate={animate}
-        exit={exit}
         transition={transition}
+        exit={exit}
       >
         <FrozenRouter>{children}</FrozenRouter>
       </motion.div>
