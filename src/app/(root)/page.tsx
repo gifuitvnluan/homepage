@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Home | Luân HomePage",
+  title: "Home",
   description: "Welcome to Luân's homepage",
 };
 

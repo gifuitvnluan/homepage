@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="vi">
       <body className={poppins.className}>
         <nav className="navbar">
           <Link href="/"> <FontAwesomeIcon icon={faHome}/> <span>home</span> </Link>
