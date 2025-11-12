@@ -678,6 +678,7 @@ section {
 .contact .row .info-container .box-container .box i,
 .contact .row .info-container .box-container .box svg {
   font-size: 3rem;
+  width: 3rem;
   color: #05a956;
 }
 

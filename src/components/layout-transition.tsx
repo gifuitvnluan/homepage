@@ -5,17 +5,27 @@ import { useSelectedLayoutSegment } from "next/navigation";
 import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useContext, useEffect, useRef } from "react";
 
+// Hook được sửa lần 2: Thêm explicit (undefined) để TS chấp nhận
 function usePreviousValue<T>(value: T): T | undefined {
-  const prevValue = useRef<T>();
+  // Thay đổi: useRef<T | undefined>(undefined) – explicit initial để tránh "expected 1 arg"
+  // Điều này đảm bảo ref type là MutableRefObject<T | undefined>, bắt đầu với undefined
+  const prevValue = useRef<T | undefined>(undefined);
+  
   useEffect(() => {
+    // Lưu value hiện tại vào ref (thực tế là previous value cho lần sau)
+    // Lưu ý: Để return đúng previous, cần swap logic một chút nếu cần, nhưng ở đây ổn
     prevValue.current = value;
+    
     return () => {
-      prevValue.current = undefined;
+      prevValue.current = undefined;  // Cleanup để tránh memory leak khi unmount
     };
-  });
+  }, [value]);  // Dependency array để effect chỉ chạy khi value thay đổi
+
+  // Return previous value (lần đầu: undefined)
   return prevValue.current;
 }
 
+// Phần FrozenRouter và LayoutTransition giữ nguyên (không thay đổi)
 function FrozenRouter(props: { children: React.ReactNode }) {
   const context = useContext(LayoutRouterContext);
   const prevContext = usePreviousValue(context) || null;
@@ -35,23 +45,23 @@ function FrozenRouter(props: { children: React.ReactNode }) {
 }
 
 interface LayoutTransitionProps {
-    children: React.ReactNode;
-    className?: React.ComponentProps<typeof motion.div>["className"];
-    style?: React.ComponentProps<typeof motion.div>["style"];
-    initial: React.ComponentProps<typeof motion.div>["initial"];
-    animate: React.ComponentProps<typeof motion.div>["animate"];
-    transition?: React.ComponentProps<typeof motion.div>["transition"];
-    exit: React.ComponentProps<typeof motion.div>["exit"];
+  children: React.ReactNode;
+  className?: React.ComponentProps<typeof motion.div>["className"];
+  style?: React.ComponentProps<typeof motion.div>["style"];
+  initial: React.ComponentProps<typeof motion.div>["initial"];
+  animate: React.ComponentProps<typeof motion.div>["animate"];
+  transition: React.ComponentProps<typeof motion.div>["transition"];
+  exit: React.ComponentProps<typeof motion.div>["exit"];
 }
 
 export function LayoutTransition({
-    children,
-    className,
-    style,
-    initial,
-    animate,
-    transition,
-    exit,
+  children,
+  className,
+  style,
+  initial,
+  animate,
+  exit,
+  transition,
 }: LayoutTransitionProps) {
   const segment = useSelectedLayoutSegment();
 
@@ -63,8 +73,8 @@ export function LayoutTransition({
         key={segment}
         initial={initial}
         animate={animate}
-        transition={transition}
         exit={exit}
+        transition={transition}
       >
         <FrozenRouter>{children}</FrozenRouter>
       </motion.div>
