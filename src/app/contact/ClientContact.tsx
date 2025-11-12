@@ -82,16 +82,16 @@ export default function ClientContact() {
         <form onSubmit={handleSubmit}>
 
             <div className="inputBox">
-                <input type="text" placeholder="your name" name="name" value={inputName} onChange={(e) => setInputName(e.target.value)} disabled={submitted}/>
-                <input type="number" placeholder="your number" name="number" value={inputNumber} onChange={(e) => setInputNumber(e.target.value)} disabled={submitted}/>
+                <input type="text" placeholder="your name" name="name" value={inputName} onChange={(e) => setInputName(e.target.value)} disabled={submitted} required/>
+                <input type="number" placeholder="your number" name="number" value={inputNumber} onChange={(e) => setInputNumber(e.target.value)} disabled={submitted} pattern='[0-9]*' required/>
             </div>
 
             <div className="inputBox">
-                <input type="email" placeholder="your email" name="email" value={inputEmail} onChange={(e) => setInputEmail(e.target.value)} disabled={submitted}/>
-                <input type="text" placeholder="your subject" name="subjectmail" value={inputSubject} onChange={(e) => setInputSubject(e.target.value)} disabled={submitted}/>
+                <input type="email" placeholder="your email" name="email" value={inputEmail} onChange={(e) => setInputEmail(e.target.value)} disabled={submitted} required/>
+                <input type="text" placeholder="your subject" name="subjectmail" value={inputSubject} onChange={(e) => setInputSubject(e.target.value)} disabled={submitted} required/>
             </div>
 
-            <textarea name="comment" placeholder="your message" cols={30} rows={10} value={inputComment} onChange={(e) => setInputComment(e.target.value)} disabled={submitted}></textarea>
+            <textarea name="comment" placeholder="your message" cols={30} rows={10} value={inputComment} onChange={(e) => setInputComment(e.target.value)} disabled={submitted} required></textarea>
 
             <input type="submit" value="send message" className="btn" disabled={submitted} />
 
