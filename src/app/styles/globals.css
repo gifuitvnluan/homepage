@@ -89,6 +89,12 @@ section {
   padding-left: 2rem;
 }
 
+.btn:disabled,
+.btn[disabled]{
+  opacity: .65 ;
+  cursor: not-allowed !important;
+}
+
 .btn i{
   width: 4rem;
   height: 4rem;
@@ -742,6 +748,12 @@ section {
   height: 25rem;
 }
 
+.contact .row form .inputBox input:disabled,
+.contact .row form textarea:disabled {
+  background: #333 !important;
+  cursor: not-allowed;
+}
+
 .contact .row form .btn {
   padding: 1rem 3rem;
   cursor: pointer;
@@ -750,6 +762,34 @@ section {
 .contact .row form .btn:hover {
   background: #fff;
   color: #0d0d0d;
+}
+
+.contact .row form .btn:hover:disabled {
+  background: #05a956;
+  color: #fff;
+}
+
+
+.contact .validate-form{
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: .5rem;
+  background: #fca5a5;
+}
+
+.contact .validate-form.successSend{
+  background: #a7f3d0;
+}
+
+.contact .validate-form *{
+  color: #ef4444;
+  font-size: 1.2rem;
+  line-height: 1.25rem;
+  font-weight: bold;
+}
+
+.contact .validate-form.successSend p{
+  color: #10b981;
 }
 
 .blogs .blog-single h1{
