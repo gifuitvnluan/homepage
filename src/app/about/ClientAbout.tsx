@@ -5,6 +5,66 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBriefcase, faDownload, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from "react";
 
+interface skillsBox {
+    id: number;
+    imgSrc: string;
+    imgWidth?: number;
+    imgHeight?: number;
+    skillName: string;
+}
+
+interface educationBox {
+    id: number;
+    icon?: typeof faBriefcase | typeof faGraduationCap;
+    timeRange: string;
+    title: string;
+    description: string;
+}
+
+const skills: skillsBox[] = [
+    { id: 1, imgSrc: '/images/icon-1.png', imgWidth: 62, imgHeight: 70, skillName: 'html' },
+    { id: 2, imgSrc: '/images/icon-2.png', imgWidth: 63, imgHeight: 70, skillName: 'css' },
+    { id: 3, imgSrc: '/images/icon-3.png', imgWidth: 61, imgHeight: 70, skillName: 'javascript' },
+    { id: 4, imgSrc: '/images/icon-4.png', imgWidth: 95, imgHeight: 70, skillName: 'sass' },
+    { id: 5, imgSrc: '/images/icon-5.png', imgWidth: 73, imgHeight: 70, skillName: 'jquery' },
+    { id: 6, imgSrc: '/images/icon-6.png', imgWidth: 67, imgHeight: 70, skillName: 'laravel' },
+    { id: 7, imgSrc: '/images/icon-10.png', imgWidth: 130, imgHeight: 70, skillName: 'php' },
+    { id: 8, imgSrc: '/images/icon-7.png', imgWidth: 70, imgHeight: 70, skillName: 'WordPress' },
+    { id: 9, imgSrc: '/images/icon-8.png', imgWidth: 70, imgHeight: 70, skillName: 'Adobe Photoshop' },
+    { id: 10, imgSrc: '/images/icon-9.png', imgWidth: 70, imgHeight: 70, skillName: 'Adobe Illustrator' },
+    { id: 11, imgSrc: '/images/icon-11.png', imgWidth: 70, imgHeight: 70, skillName: 'Adobe Animate' },
+    { id: 12, imgSrc: '/images/icon-12.png', imgWidth: 127, imgHeight: 70, skillName: 'Asterisk (Call Center)' },
+];
+
+const education: educationBox[] = [
+    {
+        id: 1,
+        icon: faGraduationCap,
+        timeRange: '2013 - 2016',
+        title: 'front-end development',
+        description: 'Student at school quy nhon college of engineering and technology'
+    },
+    {
+        id: 2,
+        icon: faBriefcase,
+        timeRange: '2016 - 2017',
+        title: 'front-end development',
+        description: 'freelancer'
+    },
+    {
+        id: 3,
+        timeRange: '2017 - 2022',
+        title: 'front-end development',
+        description: 'employee of NINJA Q CO., LTD'
+    },
+    {
+        id: 4,
+        timeRange: '2022 - current',
+        title: 'full-stack development with laravel',
+        description: 'employee of NgocThien Supply Co., Ltd (NTS)'
+    },
+];
+
 export default function About() {
   const [age, setAge] = useState(0);
   const [experience, setExperience] = useState(0);
@@ -92,54 +152,12 @@ export default function About() {
         <h1 className="heading"> <span>my</span> skills </h1>
 
         <div className="box-container">
-            <div className="box">
-                <Image width={62} height={70} src={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/icon-1.png`} alt="html"/>
-                <h3>html</h3>
-            </div>
-            <div className="box">
-                <Image width={63} height={70} src={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/icon-2.png`} alt="css"/>
-                <h3>css</h3>
-            </div>
-            <div className="box">
-                <Image width={61} height={70} src={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/icon-3.png`} alt="javascript"/>
-                <h3>javascript</h3>
-            </div>
-            <div className="box">
-                <Image width={95} height={70} src={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/icon-4.png`} alt="sass"/>
-                <h3>sass</h3>
-            </div>
-            <div className="box">
-                <Image width={73} height={70} src={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/icon-5.png`} alt="jquery"/>
-                <h3>jquery</h3>
-            </div>
-            <div className="box">
-                <Image width={67} height={70} src={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/icon-6.png`} alt="laravel"/>
-                <h3>laravel</h3>
-            </div>
-            <div className="box">
-                <Image width={130} height={70} src={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/icon-10.png`} alt="php"/>
-                <h3>php</h3>
-            </div>
-            <div className="box">
-                <Image width={70} height={70} src={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/icon-7.png`} alt="wordpress"/>
-                <h3>WordPress</h3>
-            </div>
-            <div className="box">
-                <Image width={70} height={70} src={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/icon-8.png`} alt="adobe-photoshop"/>
-                <h3>Adobe Photoshop</h3>
-            </div>
-            <div className="box">
-                <Image width={70} height={70} src={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/icon-9.png`} alt="adobe-illustrator"/>
-                <h3>Adobe Illustrator</h3>
-            </div>
-            <div className="box">
-                <Image width={70} height={70} src={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/icon-11.png`} alt="adobe-animate"/>
-                <h3>Adobe Animate</h3>
-            </div>
-            <div className="box">
-                <Image width={127} height={70} src={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/icon-12.png`} alt="asterisk"/>
-                <h3>Asterisk <br/>(Call Center)</h3>
-            </div>
+            {skills.map((skill) => (
+                <div className="box" key={skill.id}>
+                    <Image width={skill.imgWidth} height={skill.imgHeight} src={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}${skill.imgSrc}`} alt={skill.skillName.toLowerCase()}/>
+                    <h3>{skill.skillName}</h3>
+                </div>
+            ))}
         </div>
 
     </section>
@@ -153,35 +171,14 @@ export default function About() {
         <h1 className="heading"> <span>my</span> education </h1>
 
         <div className="box-container">
-
-            <div className="box">
-                <i><FontAwesomeIcon icon={faGraduationCap} /></i>
-                <span>2013 - 2016</span>
-                <h3>front-end development</h3>
-                <p>Student at school quy nhon college of engineering and technology</p>
-            </div>
-
-            <div className="box">
-                <i><FontAwesomeIcon icon={faBriefcase} /></i>
-                <span>2016 - 2017</span>
-                <h3>front-end development</h3>
-                <p>freelancer</p>
-            </div>
-
-            <div className="box">
-                <i><FontAwesomeIcon icon={faBriefcase} /></i>
-                <span>2017 - 2022</span>
-                <h3>front-end development</h3>
-                <p>employee of NINJA Q CO., LTD</p>
-            </div>
-
-            <div className="box">
-                <i><FontAwesomeIcon icon={faBriefcase} /></i>
-                <span>2022 - current</span>
-                <h3>front-end development</h3>
-                <p>employee of NgocThien Supply Co., Ltd (NTS)</p>
-            </div>
-
+            {education.map((edu) => (
+                <div className="box" key={edu.id}>
+                    <i>{edu.icon? <FontAwesomeIcon icon={edu.icon} /> : <FontAwesomeIcon icon={faBriefcase} />}</i>
+                    <span>{edu.timeRange}</span>
+                    <h3>{edu.title}</h3>
+                    <p>{edu.description}</p>
+                </div>
+            ))}
         </div>
 
     </section>
