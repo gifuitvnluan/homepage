@@ -52,6 +52,10 @@ html::-webkit-scrollbar-thumb {
 body {
   background: #0d0d0d;
   padding-bottom: 6.5rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  overflow-y: auto
 }
 
 h1, h2, h3{
