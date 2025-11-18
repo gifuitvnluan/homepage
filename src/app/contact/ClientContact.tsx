@@ -2,6 +2,7 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faMap, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faFacebookF, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useForm, ValidationError } from '@formspree/react';
 import { useState } from "react";
 
@@ -71,9 +72,15 @@ export default function ClientContact() {
             </div>
 
             <div className="share">
-                <a href="https://www.facebook.com/luanqn77" target="_blank" className="fab fa-facebook-f"></a>
-                <a href="mailto:nguyenthanhluan995@gmail.com" className="fas fa-envelope"></a>
-                <a href="https://github.com/gifuitvnluan" target="_blank" className="fab fa-github"></a>
+                <a href="https://www.facebook.com/luanqn77" target="_blank" className="fab fa-facebook-f">
+                    <FontAwesomeIcon icon={faFacebookF} />
+                </a>
+                <a href="mailto:nguyenthanhluan995@gmail.com" className="fas fa-envelope">
+                    <FontAwesomeIcon icon={faEnvelope} />
+                </a>
+                <a href="https://github.com/gifuitvnluan" target="_blank" className="fab fa-github">
+                    <FontAwesomeIcon icon={faGithub} />
+                </a>
             </div>
 
         </div>

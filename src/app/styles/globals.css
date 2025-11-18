@@ -55,7 +55,8 @@ body {
   position: relative;
   z-index: 1;
   overflow: hidden;
-  overflow-y: auto
+  overflow-y: auto;
+  min-height: 100vh;
 }
 
 h1, h2, h3{
@@ -697,16 +698,29 @@ section {
   color: #fff;
 }
 
+.contact .row .info-container .share{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
 .contact .row .info-container .share a {
   font-size: 2rem;
   height: 4.5rem;
   width: 4.5rem;
-  line-height: 4.5rem;
   border-radius: 50%;
   background: #1a1a1a;
   color: #fff;
   text-align: center;
   margin-right: .3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact .row .info-container .share a svg{
+  height: 17px;
+  width: auto;
 }
 
 .contact .row .info-container .share a:hover {
