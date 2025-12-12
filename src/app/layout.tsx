@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Luân HomePage",
     images: [
       {
-        url: `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/user.jpg`,
+        url: `images/user.jpg`,
       }
     ],
     locale: "vi_VN",
