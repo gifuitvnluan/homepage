@@ -15,6 +15,19 @@ export const metadata: Metadata = {
   },
   description: 'Welcome to Luân\'s homepage.',
   metadataBase: new URL('https://gifuitvnluan.github.io/homepage/'),
+  openGraph: {
+    title: "Luân HomePage",
+    description: "Nơi chia sẻ các bài viết về lập trình web và công nghệ.",
+    url: "https://gifuitvnluan.github.io/homepage/",
+    siteName: "Luân HomePage",
+    images: [
+      {
+        url: `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PATH_BASE : ""}/images/user.jpg`,
+      }
+    ],
+    locale: "vi_VN",
+    type: "website",
+  },
 };
 
 const poppins = Poppins({
