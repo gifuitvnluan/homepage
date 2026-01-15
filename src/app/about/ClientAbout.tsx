@@ -27,13 +27,15 @@ const skills: skillsBox[] = [
     { id: 3, imgSrc: '/images/icon-3.png', imgWidth: 61, imgHeight: 70, skillName: 'javascript' },
     { id: 4, imgSrc: '/images/icon-4.png', imgWidth: 95, imgHeight: 70, skillName: 'sass' },
     { id: 5, imgSrc: '/images/icon-5.png', imgWidth: 73, imgHeight: 70, skillName: 'jquery' },
-    { id: 6, imgSrc: '/images/icon-6.png', imgWidth: 67, imgHeight: 70, skillName: 'laravel' },
-    { id: 7, imgSrc: '/images/icon-10.png', imgWidth: 130, imgHeight: 70, skillName: 'php' },
-    { id: 8, imgSrc: '/images/icon-7.png', imgWidth: 70, imgHeight: 70, skillName: 'WordPress' },
-    { id: 9, imgSrc: '/images/icon-8.png', imgWidth: 70, imgHeight: 70, skillName: 'Adobe Photoshop' },
-    { id: 10, imgSrc: '/images/icon-9.png', imgWidth: 70, imgHeight: 70, skillName: 'Adobe Illustrator' },
-    { id: 11, imgSrc: '/images/icon-11.png', imgWidth: 70, imgHeight: 70, skillName: 'Adobe Animate' },
-    { id: 12, imgSrc: '/images/icon-12.png', imgWidth: 127, imgHeight: 70, skillName: 'Asterisk (Call Center)' },
+    { id: 6, imgSrc: '/images/icon-10.png', imgWidth: 130, imgHeight: 70, skillName: 'php' },
+    { id: 7, imgSrc: '/images/icon-7.png', imgWidth: 70, imgHeight: 70, skillName: 'WordPress' },
+    { id: 8, imgSrc: '/images/icon-6.png', imgWidth: 67, imgHeight: 70, skillName: 'laravel' },
+    { id: 9, imgSrc: '/images/icon-13.png', imgWidth: 70, imgHeight: 70, skillName: 'NodeJS' },
+    { id: 10, imgSrc: '/images/icon-14.png', imgWidth: 70, imgHeight: 70, skillName: 'NextJS' },
+    { id: 11, imgSrc: '/images/icon-8.png', imgWidth: 70, imgHeight: 70, skillName: 'Adobe Photoshop' },
+    { id: 12, imgSrc: '/images/icon-9.png', imgWidth: 70, imgHeight: 70, skillName: 'Adobe Illustrator' },
+    { id: 13, imgSrc: '/images/icon-11.png', imgWidth: 70, imgHeight: 70, skillName: 'Adobe Animate' },
+    { id: 14, imgSrc: '/images/icon-12.png', imgWidth: 127, imgHeight: 70, skillName: 'Asterisk (Call Center)' },
 ];
 
 const education: educationBox[] = [
