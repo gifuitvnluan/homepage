@@ -20,6 +20,16 @@ interface BlogItem {
 // add data static blog items here if needed
 const staticBlogItems: BlogItem[] = [
   {
+      "id": 15,
+      "title": "Hướng dẫn setup remote sử dụng GPU thật (không GPU ảo)",
+      "link": "https://1tomy.com/2026/01/15/setup-remote-su-dung-gpu-that/",
+      "date": "2026/01/15",
+      "description": "Hướng dẫn chi tiết cách setup máy remote để sử dụng GPU thật khi remote. Không tạo GPU ảo, không passthrough, hiệu năng tối đa.",
+      "image": "remoteGPU.png",
+      "author": "Tô Mỳ Tôm",
+      "blurImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAABCUlEQVR4ARTHTy+CcQDA8W+/5+n3qIkO3TAObFykCVPWOjjxSrwEvQHk38HRwUw91XJj2tgc3GwWFwwbG7VnzSiGWnn6eRy+++4jMpmsSqdNp4wyzaz6dyplOjZVLptTYq9Q5P1HoRmdSK/fuQ/b5SZ/fMXu/ini09VFeDJMLDJGLBoiHg0Snxkn0NNP8fYRUW/rSCnxeLwYsgNNN3DrGr+Gh4YuEQ1bcHZX46hY5vDiicLlCyfXFZ5tSVMaiL7mDTtbKyQWEywvJdlY22Q9ucr9wTb+2gOit1sQDLRYGP1ibmKQqQEfw36F8VGi/mYhhkZCVL9b5M8tytYrpUqVtuYlPjvPdCTGHwAAAP//2ojhbAAAAAZJREFUAwBqhmRipWy17AAAAABJRU5ErkJggg=="
+    },
+  {
       "id": 14,
       "title": "Tạo schedule trong Laravel – Tự động hóa tác vụ hiệu quả",
       "link": "https://1tomy.com/2025/12/22/tao-schedule-trong-laravel/",
