@@ -41,8 +41,8 @@ const staticBlogItems: BlogItem[] = [
     },
   {
       "id": 13,
-      "title": "Hướng dẫn cài Xdebug để debug lỗi",
-      "link": "https://1tomy.com/2024/12/17/huong-dan-cai-xdebug-de-debug-loi/",
+      "title": "Hướng dẫn cài đặt Xdebug PHP để debug lỗi",
+      "link": "https://1tomy.com/2024/12/17/huong-dan-cai-dat-xdebug-php-de-debug-loi/",
       "date": "2024/12/17",
       "description": "Cài đặt Xdebug PHP là bước quan trọng giúp lập trình viên debug lỗi một cách chi tiết và chính xác hơn so với việc dùng dd() hay var_dump().Trong bài...",
       "image": "xdebugdebugerrors.webp",
