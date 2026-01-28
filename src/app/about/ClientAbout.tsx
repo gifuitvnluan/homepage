@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBriefcase, faDownload, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useInView } from 'framer-motion'
+import CountUp from '@/components/countup'
 
 interface skillsBox {
     id: number;
@@ -68,9 +70,12 @@ const education: educationBox[] = [
 ];
 
 export default function About() {
-  const [age, setAge] = useState(0);
-  const [experience, setExperience] = useState(0);
-  const [pathBase, setPathBase] = useState('');
+    const ref = useRef(null)
+    const isInView = useInView(ref, { once: true })
+
+    const [age, setAge] = useState(0);
+    const [experience, setExperience] = useState(0);
+    const [pathBase, setPathBase] = useState('');
 
   useEffect(() => {
     const myYear = process.env.NEXT_PUBLIC_YEAR_BORN || 0;
@@ -122,20 +127,20 @@ export default function About() {
 
             </div>
 
-            <div className="count-container">
+            <div className="count-container" ref={ref}>
 
                 <div className="box">
-                    <h3><span className="span_experience">{experience}</span>+</h3>
+                    <h3><span className="span_experience">{isInView && <CountUp value={experience} duration={1.5} />}</span>+</h3>
                     <p>years of experience</p>
                 </div>
 
                 <div className="box">
-                    <h3>450+</h3>
+                    <h3>{isInView && <CountUp value={450} duration={2}/>}+</h3>
                     <p>happy clients</p>
                 </div>
 
                 <div className="box">
-                    <h3>200+</h3>
+                    <h3>{isInView && <CountUp value={200} duration={2.5}/>}+</h3>
                     <p>project completed</p>
                 </div>
 
