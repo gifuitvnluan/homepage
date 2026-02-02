@@ -20,6 +20,16 @@ interface BlogItem {
 // add data static blog items here if needed
 const staticBlogItems: BlogItem[] = [
   {
+      "id": 16,
+      "title": "Hướng dẫn cách lấy lại mật khẩu Windows 10/11 và đăng nhập nếu quên mật khẩu",
+      "link": "https://1tomy.com/2026/02/02/huong-dan-cach-lay-lai-mat-khau-windows/",
+      "date": "2026/02/02",
+      "description": "Hướng dẫn chi tiết cách lấy lại mật khẩu Windows 10, Windows 11 khi bị quên, không mất dữ liệu, ai cũng làm được tại nhà.",
+      "image": "password.jpg",
+      "author": "Tô Mỳ Tôm",
+      "blurImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAGCAYAAAD+Bd/7AAAA0klEQVR4AQDGADn/AiAkXP8qNnr/UoLT/02N5v9YYdn/Z0mq/0s2eP83M2X/AgkMDgAQAw8A/8rjAADY1gAZEOkASx0ZADoiWAAbFT8AAgkNFQD9CRgA+AEIAPXXxgDq07gAy+/uAPsLBAA7JikAAg0ZJwAdJjIAEhYEAPb/9ADc8O8AyuXRAOrsxQAcFA4AAhImMQAMAgcA+vnmACo1KAAwPDIAPzcdAPwaIADi+AoAAhUMDQD18OgA8+rZABEOBAAlNjIAHis9AAgSIADw8fUAAAAA//9787ZJAAAABklEQVQDANIgQoez4WeYAAAAAElFTkSuQmCC"
+    },
+  {
       "id": 15,
       "title": "Hướng dẫn setup remote sử dụng GPU thật (không GPU ảo)",
       "link": "https://1tomy.com/2026/01/15/setup-remote-su-dung-gpu-that/",
@@ -62,7 +72,7 @@ const staticBlogItems: BlogItem[] = [
     {
       "id": 11,
       "title": "Hướng dẫn sử dụng Filezilla Server để tạo FTP",
-      "link": "https://1tomy.com/2024/11/07/huong-dan-su-dung-filezilla-server-de-tao-ftp/",
+      "link": "https://1tomy.com/2024/11/07/huong-dan-tao-ftp-bang-filezilla-server/",
       "date": "2024/11/7",
       "description": "FileZilla Server là một phần mềm miễn phí, dễ sử dụng, giúp bạn thiết lập một máy chủ FTP (File Transfer Protocol) cá nhân một cách nhanh chóng. FTP cho...",
       "image": "filezillaftp.jpg",
@@ -72,7 +82,7 @@ const staticBlogItems: BlogItem[] = [
     {
       "id": 10,
       "title": "Một số link hay dùng cho front end và back end",
-      "link": "https://1tomy.com/2024/10/25/mot-so-link-hay-dung-cho-front-end-va-back-end/",
+      "link": "https://1tomy.com/2024/10/25/link-hay-dung-cho-front-end-va-back-end/",
       "date": "2024/10/25",
       "description": "Link hữu ích cho front end và back end là những tài nguyên không thể thiếu giúp lập trình viên học nhanh hơn, code hiệu quả hơn và tiết kiệm...",
       "image": "linkhay.jpg",
@@ -92,7 +102,7 @@ const staticBlogItems: BlogItem[] = [
     {
       "id": 8,
       "title": "AI chuyển ngôn ngữ sang SQL – Công cụ tạo truy vấn tự động",
-      "link": "https://1tomy.com/2024/10/23/gioi-thieu-tool-su-dung-ai-de-chuyen-ngon-ngu-cua-nguoi-thanh-ngon-ngu-sql/",
+      "link": "https://1tomy.com/2024/10/23/tool-su-dung-ai-chuyen-ngon-ngu-sang-sql/",
       "date": "2024/10/23",
       "description": "AI chuyển ngôn ngữ sang SQL là gì? AI chuyển ngôn ngữ sang SQL là giải pháp giúp người dùng tạo câu truy vấn cơ sở dữ liệu mà không...",
       "image": "aitosql.webp",
@@ -102,7 +112,7 @@ const staticBlogItems: BlogItem[] = [
     {
       "id": 7,
       "title": "So sánh hình ảnh bằng jQuery – hướng dẫn tạo hiệu ứng",
-      "link": "https://1tomy.com/2024/10/23/huong-dan-tao-chuc-nang-so-sanh-hinh-bang-jquery/",
+      "link": "https://1tomy.com/2024/10/23/so-sanh-hinh-anh-bang-jquery/",
       "date": "2024/10/23",
       "description": "So sánh hình ảnh bằng jQuery là kỹ thuật thường được dùng để tạo hiệu ứng before/after, giúp người dùng dễ dàng nhìn thấy sự khác biệt giữa hai hình...",
       "image": "sosanhanhjquery.webp",
@@ -122,7 +132,7 @@ const staticBlogItems: BlogItem[] = [
     {
       "id": 5,
       "title": "jQuery canh nút back to top với footer khi dùng position fixed",
-      "link": "https://1tomy.com/2024/10/23/jquery-tu-dong-canh-nut-backtop-voi-footer-khi-su-dung-position-fixed/",
+      "link": "https://1tomy.com/2024/10/23/jquery-canh-nut-back-to-top-voi-footer/",
       "date": "2024/10/23",
       "description": "jQuery canh nút back to top với footer là giải pháp thường dùng khi thiết kế website.Cách này giúp nút không bị che bởi footer và hiển thị đúng vị...",
       "image": "backtopjquery.webp",
@@ -132,7 +142,7 @@ const staticBlogItems: BlogItem[] = [
     {
       "id": 4,
       "title": "Nén và giải nén trên FileZilla – Hướng dẫn chi tiết cho người mới",
-      "link": "https://1tomy.com/2024/10/23/huong-dan-nen-va-giai-nen-tren-filezila/",
+      "link": "https://1tomy.com/2024/10/23/nen-va-giai-nen-tren-filezilla/",
       "date": "2024/10/23",
       "description": "Nén và giải nén trên FileZilla là thao tác rất hữu ích khi làm việc với FTP server.Việc này giúp giảm dung lượng file, tăng tốc độ upload và download,...",
       "image": "giainenftp.webp",
@@ -142,7 +152,7 @@ const staticBlogItems: BlogItem[] = [
     {
       "id": 3,
       "title": "jQuery tự động tính chiều cao header khi dùng position fixed",
-      "link": "https://1tomy.com/2024/10/23/jquery-tu-dong-cho-chieu-cao-header-khi-su-dung-position-fixed/",
+      "link": "https://1tomy.com/2024/10/23/jquery-tu-dong-tinh-chieu-cao-header/",
       "date": "2024/10/23",
       "description": "jQuery tự động tính chiều cao header là giải pháp cần thiết khi sử dụng position fixed trong website.Cách này giúp nội dung bên dưới không bị header che khuất....",
       "image": "heighheaderjquery.webp",
@@ -152,7 +162,7 @@ const staticBlogItems: BlogItem[] = [
     {
       "id": 2,
       "title": "Scroll content popup Bootstrap bằng jQuery – Cách làm chi tiết",
-      "link": "https://1tomy.com/2024/10/23/scroll-content-popup-bootstrap-voi-jquery/",
+      "link": "https://1tomy.com/2024/10/23/scroll-content-popup-bootstrap-bang-jquery/",
       "date": "2024/10/23",
       "description": "Scroll content popup Bootstrap bằng jQuery là giải pháp phổ biến khi cần hiển thị nội dung dài trong modal.Cách làm này giúp popup có thanh cuộn riêng, tránh tràn...",
       "image": "scrollcontenpopup.webp",
@@ -162,7 +172,7 @@ const staticBlogItems: BlogItem[] = [
     {
       "id": 1,
       "title": "Thay hình bằng jQuery trên smartphone theo kích thước màn hình",
-      "link": "https://1tomy.com/2024/10/22/thay-hinh-bang-jquery-khi-vao-smartphone/",
+      "link": "https://1tomy.com/2024/10/22/thay-hinh-bang-jquery-tren-smartphone/",
       "date": "2024/10/22",
       "description": "Thay hình bằng jQuery trên smartphone giúp website hiển thị hình ảnh phù hợp với màn hình thiết bị.Giúp tối ưu giao diện, giảm dung lượng tải và cải thiện...",
       "image": "imagespjquery.webp",
