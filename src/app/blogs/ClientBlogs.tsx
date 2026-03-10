@@ -20,6 +20,16 @@ interface BlogItem {
 // add data static blog items here if needed
 const staticBlogItems: BlogItem[] = [
   {
+      "id": 17,
+      "title": "Hướng Dẫn Sử Dụng MP4Box Chi Tiết Từ A–Z (Cắt, Ghép, Tách Video MP4)",
+      "link": "https://1tomy.com/2026/03/10/huong-dan-su-dung-mp4box/",
+      "date": "2026/03/10",
+      "description": "Hướng dẫn sử dụng MP4Box chi tiết cho người mới: cách cắt video, ghép video, tách audio, subtitle và tối ưu file MP4 nhanh chóng bằng dòng lệnh.",
+      "image": "mp4box.jpg",
+      "author": "Tô Mỳ Tôm",
+      "blurImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAABFElEQVR4AQAIAff+Akw/Qf81FBb/QDg8/x8gJf8WFhn/EhIS/xAQEP8QEBD/Ain93gANKi0AipOQAJ+dmACtrKkAsrKyAMfHxwC+vr4AArzh6wDk29EAbVxUAGtoagBGR0sAQUFBACkpKQAyMjIAAuD4/gBjTzIAe1I9AF02FwAfHh8AHB4hABgYGwAXGBsAAndBIgAjIAsA5fjxABwcHACip6sAc3qEAAUFAwD2+PIAAuv4DAD97gIADPHnAPXp4QCfuNoAw9bwAPr7/AABAAIAAr/X7gC3zuIAze0EAKnR7gCdf1cArZFqAOvq6ADz8fIAAvHx9QC92O4AtdXwAOf1AQAeHyAAGxsbABgYGAD///8AAAAA//9zqx1mAAAABklEQVQDAO0MZLvGT89IAAAAAElFTkSuQmCC"
+    },
+  {
       "id": 16,
       "title": "Hướng dẫn cách lấy lại mật khẩu Windows 10/11 và đăng nhập nếu quên mật khẩu",
       "link": "https://1tomy.com/2026/02/02/huong-dan-cach-lay-lai-mat-khau-windows/",
