@@ -20,6 +20,16 @@ interface BlogItem {
 // add data static blog items here if needed
 const staticBlogItems: BlogItem[] = [
   {
+      "id": 18,
+      "title": "Giới thiệu và hướng dẫn cài Agent DVR chi tiết từ A-Z",
+      "link": "https://1tomy.com/2026/04/08/gioi-thieu-va-huong-dan-cai-agent-dvr/",
+      "date": "2026/04/08",
+      "description": "Tìm hiểu về Agent DVR là gì và cách cài đặt Agent DVR chi tiết từng bước trên Windows, Linux. Hướng dẫn đầy đủ, dễ hiểu cho người mới bắt đầu.",
+      "image": "agent-dvr.jpg",
+      "author": "Tô Mỳ Tôm",
+      "blurImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAn0lEQVR4AQSASQsBYRiAn76i1FhGoTSWk50icRIlF+Un+OEOyMUyY5kZfZixvFJGbSJGbSyp6kjMUleSVkcynalY06VYvZmoiFJEwxfFQpH5Ys5g2KdRyjFr5qm3W6hEzCBTbiP6ymm9IvRufPUDe7tBuxeUe7Px7R3Pj+AFAT/lIly5vzWhf0CRzuL5F47OGcfZY8Z90klNzjxRKTj8AQAA///vsYNaAAAABklEQVQDAKVKRDwKoHzJAAAAAElFTkSuQmCC"
+    },
+  {
       "id": 17,
       "title": "Hướng Dẫn Sử Dụng MP4Box Chi Tiết Từ A–Z (Cắt, Ghép, Tách Video MP4)",
       "link": "https://1tomy.com/2026/03/10/huong-dan-su-dung-mp4box/",
